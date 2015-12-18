@@ -1,0 +1,3 @@
+Cask/NoDslVersion:
+  Description: 'Do not use the deprecated DSL version syntax in your cask header.'
+  Enabled: true

@@ -1,0 +1,6 @@
+Style/FileName:
+  Exclude:
+    - lib/rubocop-cask.rb
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
