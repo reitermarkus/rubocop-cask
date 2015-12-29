@@ -1,7 +1,15 @@
 describe RuboCop::Cop::Cask::NoDslVersion do
   subject(:cop) { described_class.new }
 
-  it 'checks for dsl version in cask header' do
+  it 'allows cask header with no dsl version' do
+    inspect_source(cop, [
+      "cask 'foo' do",
+      'end'
+    ])
+    expect(cop.offenses).to be_empty
+  end
+
+  it 'detects dsl version in cask header' do
     inspect_source(cop, [
       "cask :v1 => 'foo' do",
       'end'
@@ -11,10 +19,21 @@ describe RuboCop::Cop::Cask::NoDslVersion do
     expect(cop.messages)
       .to eq(["Use `cask 'foo'` instead of `cask :v1 => 'foo'`"])
     expect(cop.highlights)
-      .to eq([":v1 => 'foo'"])
+      .to eq(["cask :v1 => 'foo'"])
   end
 
-  it 'checks for dsl version with test in cask header' do
+  it 'autocorrects dsl version in cask header' do
+    new_source = autocorrect_source(cop, [
+      "cask :v1 => 'foo' do",
+      'end'
+    ])
+    expect(new_source).to eq([
+      "cask 'foo' do",
+      'end'
+    ].join("\n"))
+  end
+
+  it 'detects dsl version with test in cask header' do
     inspect_source(cop, [
       "cask :v1test => 'foo' do",
       'end'
@@ -24,18 +43,29 @@ describe RuboCop::Cop::Cask::NoDslVersion do
     expect(cop.messages)
       .to eq(["Use `test_cask 'foo'` instead of `cask :v1test => 'foo'`"])
     expect(cop.highlights)
-      .to eq([":v1test => 'foo'"])
+      .to eq(["cask :v1test => 'foo'"])
   end
 
-  it 'ignores cask header with no dsl version' do
+  it 'autocorrects dsl version with test in cask header' do
+    new_source = autocorrect_source(cop, [
+      "cask :v1test => 'foo' do",
+      'end'
+    ])
+    expect(new_source).to eq([
+      "test_cask 'foo' do",
+      'end'
+    ].join("\n"))
+  end
+
+  it 'allows test_cask header with no dsl version' do
     inspect_source(cop, [
-      "cask 'foo' do",
+      "test_cask 'foo' do",
       'end'
     ])
     expect(cop.offenses).to be_empty
   end
 
-  it 'checks for dsl version in test_cask header' do
+  it 'detects dsl version in test_cask header' do
     inspect_source(cop, [
       "test_cask :v1 => 'foo' do",
       'end'
@@ -45,14 +75,17 @@ describe RuboCop::Cop::Cask::NoDslVersion do
     expect(cop.messages)
       .to eq(["Use `test_cask 'foo'` instead of `test_cask :v1 => 'foo'`"])
     expect(cop.highlights)
-      .to eq([":v1 => 'foo'"])
+      .to eq(["test_cask :v1 => 'foo'"])
   end
 
-  it 'ignores test_cask header with no dsl version' do
-    inspect_source(cop, [
-      "test_cask 'foo' do",
+  it 'autocorrects dsl version in test_cask header' do
+    new_source = autocorrect_source(cop, [
+      "test_cask :v1 => 'foo' do",
       'end'
     ])
-    expect(cop.offenses).to be_empty
+    expect(new_source).to eq([
+      "test_cask 'foo' do",
+      'end'
+    ].join("\n"))
   end
 end

@@ -1,5 +1,6 @@
 require 'rubocop'
 
+require 'rubocop/cask/cask_block'
 require 'rubocop/cask/version'
 require 'rubocop/cask/inject'
 

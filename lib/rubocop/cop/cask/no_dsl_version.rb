@@ -16,32 +16,47 @@ module RuboCop
       class NoDslVersion < Cop
         MESSAGE = 'Use `%s` instead of `%s`'
 
-        CASK_METHOD_NAMES = [:cask, :test_cask]
+        def on_block(block_node)
+          @cask_block = RuboCop::Cask::CaskBlock.new(block_node)
+          return unless offense?
+          offense
+        end
 
-        def on_block(node)
-          method, _args, _body = node.children
-          _receiver, method_name, object = method.children
-          return unless CASK_METHOD_NAMES.include?(method_name)
-          check(method_name, object)
+        def autocorrect(block_node)
+          @cask_block = RuboCop::Cask::CaskBlock.new(block_node)
+          lambda do |corrector|
+            corrector.replace(header_range, preferred_header_str)
+          end
         end
 
         private
 
-        def check(method_name, object)
-          return unless object.type == :hash
-          message = build_message(method_name, object)
-          add_offense(object, :expression, message)
+        def offense?
+          @cask_block.cask? && @cask_block.header.dsl_version?
         end
 
-        def build_message(method_name, object)
-          left, right = *object.children.first
-          cask_token = right.children.first
-          dsl_version_str = left.children.first.to_s
-          new_method_name =
-            dsl_version_str.include?('test') ? :test_cask : method_name
-          preferred_header = "#{new_method_name} '#{cask_token}'"
-          actual_header = "#{method_name} #{object.loc.expression.source}"
-          format(MESSAGE, preferred_header, actual_header)
+        def offense
+          add_offense(cask_node, header_range, error_msg)
+        end
+
+        def cask_node
+          @cask_block.cask_block_node
+        end
+
+        def header_range
+          @cask_block.header.source_range
+        end
+
+        def error_msg
+          format(MESSAGE, preferred_header_str, header_str)
+        end
+
+        def preferred_header_str
+          @cask_block.header.preferred_header_str
+        end
+
+        def header_str
+          @cask_block.header.header_str
         end
       end
     end
