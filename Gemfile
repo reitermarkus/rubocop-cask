@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'overcommit', '~> 0.29'
+gem 'overcommit', '~> 0.30'
 gem 'rake', '~> 10.4'
 gem 'rspec', '~> 3.4'
 gem 'rubocop', '~> 0.35'
