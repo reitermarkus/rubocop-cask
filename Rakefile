@@ -17,3 +17,11 @@ task :coverage do
 end
 
 task default: [:spec]
+
+desc 'Open a REPL for experimentation'
+task :repl do
+  require 'pry'
+  require 'rubocop-cask'
+  ARGV.clear
+  RuboCop.pry
+end
