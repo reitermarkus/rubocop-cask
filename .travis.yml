@@ -21,7 +21,6 @@ matrix:
 before_install:
   - gem update --system
   - gem update --remote bundler
-  - git clone --depth 1 git://github.com/bbatsov/rubocop.git vendor/rubocop
 
 before_script:
   - git config --local user.email "travis@travis.ci"

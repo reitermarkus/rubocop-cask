@@ -9,6 +9,7 @@ PreCommit:
 
   HardTabs:
     enabled: true
+    exclude: '.gitmodules'
 
   RuboCop:
     enabled: true
