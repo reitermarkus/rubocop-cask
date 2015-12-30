@@ -8,6 +8,7 @@ gem 'rspec', '~> 3.4'
 gem 'rubocop', '~> 0.35'
 gem 'simplecov', '~> 0.11'
 gem 'travis', '~> 1.8'
+gem 'github_changelog_generator', '~> 1.9'
 gem 'pry'
 
 group :test do
