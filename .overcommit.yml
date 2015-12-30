@@ -6,6 +6,9 @@ PreCommit:
 
   ExecutePermissions:
     enabled: true
+    exclude:
+      - 'bin/console'
+      - 'bin/setup'
 
   HardTabs:
     enabled: true
