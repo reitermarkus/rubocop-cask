@@ -10,6 +10,7 @@ gem 'simplecov', '~> 0.11'
 gem 'travis', '~> 1.8'
 gem 'github_changelog_generator', '~> 1.9'
 gem 'pry'
+gem 'pry-byebug'
 
 group :test do
   gem 'codeclimate-test-reporter', require: false
