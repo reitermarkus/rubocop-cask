@@ -1,1 +1,1 @@
---color --require spec_helper
+--color --require spec_helper --exclude-pattern "vendor/**/*"

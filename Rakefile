@@ -19,7 +19,9 @@ task :coverage do
   Rake::Task['spec'].execute
 end
 
-RuboCop::RakeTask.new
+RuboCop::RakeTask.new(:rubocop) do |task|
+  task.options = ['--force-exclusion']
+end
 
 task default: [:spec, :rubocop]
 
