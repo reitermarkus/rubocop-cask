@@ -3,7 +3,12 @@ engines:
     enabled: true
     config:
       languages:
-        - ruby
+        ruby:
+          paths:
+            - Gemfile
+            - Rakefile
+            - rubocop-cask.gemspec
+            - lib/**/*.rb
   fixme:
     enabled: true
   rubocop:
