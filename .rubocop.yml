@@ -2,6 +2,10 @@ AllCops:
   Exclude:
     - vendor/**/*
 
+Metrics/AbcSize:
+  Exclude:
+    - spec/**/*
+
 Style/FileName:
   Exclude:
     - lib/rubocop-cask.rb
