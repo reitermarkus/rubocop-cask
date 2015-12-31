@@ -18,7 +18,7 @@ describe RuboCop::Cop::Cask::NoDslVersion do
       let(:expected_offenses) do
         [{ message: "Use `cask 'foo'` instead of `cask :v1 => 'foo'`",
            severity: :convention, line: 1, column: 0,
-           highlight: "cask :v1 => 'foo'" }]
+           source: "cask :v1 => 'foo'" }]
       end
 
       include_examples 'reports offenses'
@@ -32,7 +32,7 @@ describe RuboCop::Cop::Cask::NoDslVersion do
       let(:expected_offenses) do
         [{ message: "Use `test_cask 'foo'` instead of `cask :v1test => 'foo'`",
            severity: :convention, line: 1, column: 0,
-           highlight: "cask :v1test => 'foo'" }]
+           source: "cask :v1test => 'foo'" }]
       end
 
       include_examples 'reports offenses'
@@ -54,7 +54,7 @@ describe RuboCop::Cop::Cask::NoDslVersion do
       let(:expected_offenses) do
         [{ message: "Use `test_cask 'foo'` instead of `test_cask :v1 => 'foo'`",
            severity: :convention, line: 1, column: 0,
-           highlight: "test_cask :v1 => 'foo'" }]
+           source: "test_cask :v1 => 'foo'" }]
       end
 
       include_examples 'reports offenses'

@@ -10,13 +10,8 @@ module CopSharedExamples
     it 'reports offenses' do
       inspect_source(cop, source)
       expect(cop.offenses.size).to eq(expected_offenses.size)
-      cop.offenses.zip(expected_offenses).each_with_index do |pair, index|
-        actual, expected = *pair
-        expect(actual.message).to eq(expected[:message])
-        expect(actual.severity).to eq(expected[:severity])
-        expect(actual.line).to eq(expected[:line])
-        expect(actual.column).to eq(expected[:column])
-        expect(cop.highlights[index]).to eq(expected[:highlight])
+      expected_offenses.zip(cop.offenses).each do |expected, actual|
+        expect_offense(expected, actual)
       end
     end
   end
@@ -26,5 +21,13 @@ module CopSharedExamples
       new_source = autocorrect_source(cop, source)
       expect(new_source).to eq(Array(correct_source).join("\n"))
     end
+  end
+
+  def expect_offense(expected, actual)
+    expect(actual.message).to eq(expected[:message])
+    expect(actual.severity).to eq(expected[:severity])
+    expect(actual.line).to eq(expected[:line])
+    expect(actual.column).to eq(expected[:column])
+    expect(actual.location.source).to eq(expected[:source])
   end
 end
