@@ -21,8 +21,8 @@ module RuboCop
 
         MESSAGE = 'Use `%s` instead of `%s`'
 
-        def on_cask(_block_node, method_node, _block_body)
-          @cask_header = cask_header(method_node)
+        def on_cask(cask_node)
+          @cask_header = cask_header(cask_node.method_node)
           return unless offense?
           offense
         end
@@ -40,7 +40,7 @@ module RuboCop
         def_delegators :@cask_header, :header_str, :preferred_header_str
 
         def cask_header(method_node)
-          RuboCop::Cask::CaskHeader.new(method_node)
+          RuboCop::Cask::AST::CaskHeader.new(method_node)
         end
 
         def offense?
