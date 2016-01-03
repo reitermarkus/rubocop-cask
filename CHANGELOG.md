@@ -1,5 +1,22 @@
 # Change Log
 
+## [Unreleased](https://github.com/caskroom/rubocop-cask/tree/HEAD)
+
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.1.0...HEAD)
+
+**Implemented enhancements:**
+
+- Cop: stanza order [\#1](https://github.com/caskroom/rubocop-cask/issues/1)
+
+**Closed issues:**
+
+- Test ticket from Code Climate [\#8](https://github.com/caskroom/rubocop-cask/issues/8)
+
+**Merged pull requests:**
+
+- Implement StanzaOrder and StanzaGrouping cops [\#9](https://github.com/caskroom/rubocop-cask/pull/9) ([jawshooah](https://github.com/jawshooah))
+- Add configuration for Code Climate Platform [\#7](https://github.com/caskroom/rubocop-cask/pull/7) ([jawshooah](https://github.com/jawshooah))
+
 ## [v0.1.0](https://github.com/caskroom/rubocop-cask/tree/v0.1.0) (2015-12-29)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.0.1...v0.1.0)
 
