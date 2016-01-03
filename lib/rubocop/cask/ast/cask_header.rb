@@ -4,13 +4,11 @@ module RuboCop
       # This class wraps the AST method node that represents the cask header. It
       # includes various helper methods to aid cops in their analysis.
       class CaskHeader
-        include CaskHelp
-
-        attr_reader :method_node
-
         def initialize(method_node)
           @method_node = method_node
         end
+
+        attr_reader :method_node
 
         def dsl_version?
           hash_node

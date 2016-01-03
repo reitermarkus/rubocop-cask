@@ -17,7 +17,7 @@ module RuboCop
       #   end
       class NoDslVersion < Cop
         extend Forwardable
-        include RuboCop::Cask::CaskHelp
+        include CaskHelp
 
         MESSAGE = 'Use `%s` instead of `%s`'
 

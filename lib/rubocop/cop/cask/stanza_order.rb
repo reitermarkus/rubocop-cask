@@ -8,7 +8,7 @@ module RuboCop
       # for more info.
       class StanzaOrder < Cop
         extend Forwardable
-        include RuboCop::Cask::CaskHelp
+        include CaskHelp
 
         MESSAGE = '`%s` stanza out of order'
 

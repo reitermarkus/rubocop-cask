@@ -9,7 +9,7 @@ module RuboCop
       # for more info.
       class StanzaGrouping < Cop
         extend Forwardable
-        include RuboCop::Cask::CaskHelp
+        include CaskHelp
 
         MISSING_LINE_MSG = 'stanza groups should be separated by a single ' \
                            'empty line'
