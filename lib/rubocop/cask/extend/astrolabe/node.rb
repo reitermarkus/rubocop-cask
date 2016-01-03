@@ -18,12 +18,15 @@ module Astrolabe
       send_type? && CASK_METHOD_NAMES.include?(method_name)
     end
 
-    def line_before
-      loc.first_line - 1
+    def heredoc?
+      loc.is_a?(Parser::Source::Map::Heredoc)
     end
 
-    def line_after
-      loc.last_line + 1
+    def expression
+      base_expression = loc.expression
+      descendants.select(&:heredoc?).reduce(base_expression) do |expr, node|
+        expr.join(node.loc.heredoc_end)
+      end
     end
   end
 end

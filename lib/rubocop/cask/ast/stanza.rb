@@ -21,7 +21,7 @@ module RuboCop
         def_delegator :stanza_node, :parent, :parent_node
 
         def expression
-          stanza_node.loc.expression
+          stanza_node.expression
         end
 
         def_delegator :expression, :source

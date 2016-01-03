@@ -43,43 +43,43 @@ module RuboCop
           toplevel_stanzas.each_cons(2) do |stanza, next_stanza|
             next unless next_stanza
             if missing_line_after?(stanza, next_stanza)
-              add_offense_missing_line(stanza.stanza_node)
+              add_offense_missing_line(stanza)
             elsif extra_line_after?(stanza, next_stanza)
-              add_offense_extra_line(stanza.stanza_node)
+              add_offense_extra_line(stanza)
             end
           end
         end
 
         def missing_line_after?(stanza, next_stanza)
           !(stanza.same_group?(next_stanza) ||
-            empty_line_after?(stanza.stanza_node))
+            empty_line_after?(stanza))
         end
 
         def extra_line_after?(stanza, next_stanza)
           stanza.same_group?(next_stanza) &&
-            empty_line_after?(stanza.stanza_node)
+            empty_line_after?(stanza)
         end
 
-        def empty_line_after?(stanza_node)
-          source_line_after(stanza_node).empty?
+        def empty_line_after?(stanza)
+          source_line_after(stanza).empty?
         end
 
-        def source_line_after(stanza_node)
-          processed_source[index_of_line_after(stanza_node)]
+        def source_line_after(stanza)
+          processed_source[index_of_line_after(stanza)]
         end
 
-        def index_of_line_after(stanza_node)
-          stanza_node.line_after - 1
+        def index_of_line_after(stanza)
+          stanza.expression.last_line
         end
 
-        def add_offense_missing_line(stanza_node)
-          line_index = index_of_line_after(stanza_node)
+        def add_offense_missing_line(stanza)
+          line_index = index_of_line_after(stanza)
           line_ops[line_index] = :insert
           add_offense(line_index, MISSING_LINE_MSG)
         end
 
-        def add_offense_extra_line(stanza_node)
-          line_index = index_of_line_after(stanza_node)
+        def add_offense_extra_line(stanza)
+          line_index = index_of_line_after(stanza)
           line_ops[line_index] = :remove
           add_offense(line_index, EXTRA_LINE_MSG)
         end

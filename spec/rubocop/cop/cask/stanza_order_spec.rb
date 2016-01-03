@@ -155,6 +155,46 @@ describe RuboCop::Cop::Cask::StanzaOrder do
     end
   end
 
+  context 'when a stanza includes a heredoc' do
+    let(:source) do
+      <<-CASK.undent
+        cask 'foo' do
+          name 'Foo'
+          url 'https://foo.example.com/foo.zip'
+          caveats <<-EOS.undent
+            This is a multiline caveat.
+
+            Let's hope it doesn't cause any problems!
+          EOS
+          version :latest
+          app 'Foo.app'
+          sha256 :no_check
+        end
+      CASK
+    end
+    let(:correct_source) do
+      <<-CASK.undent
+        cask 'foo' do
+          version :latest
+          sha256 :no_check
+          url 'https://foo.example.com/foo.zip'
+          name 'Foo'
+          app 'Foo.app'
+          caveats <<-EOS.undent
+            This is a multiline caveat.
+
+            Let's hope it doesn't cause any problems!
+          EOS
+        end
+      CASK
+    end
+
+    it 'autocorrects as expected' do
+      new_source = autocorrect_source(cop, source)
+      expect(new_source).to eq(Array(correct_source).join("\n"))
+    end
+  end
+
   # TODO: detect out-of-order stanzas in nested expressions
   context 'when stanzas are nested in a conditional expression' do
     let(:source) do
