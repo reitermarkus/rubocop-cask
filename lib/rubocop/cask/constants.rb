@@ -45,7 +45,6 @@ module RuboCop
       STANZA_GROUP_HASH =
         STANZA_GROUPS.each_with_object({}) do |stanza_group, hash|
           stanza_group.each { |stanza| hash[stanza] = stanza_group }
-          hash
         end.freeze
 
       STANZA_ORDER = STANZA_GROUPS.flatten.freeze
