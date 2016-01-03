@@ -16,9 +16,15 @@ describe RuboCop::Cop::Cask::NoDslVersion do
       let(:source) { "cask :v1 => 'foo' do; end" }
       let(:correct_source) { "cask 'foo' do; end" }
       let(:expected_offenses) do
-        [{ message: "Use `cask 'foo'` instead of `cask :v1 => 'foo'`",
-           severity: :convention, line: 1, column: 0,
-           source: "cask :v1 => 'foo'" }]
+        [
+          {
+            message: "Use `cask 'foo'` instead of `cask :v1 => 'foo'`",
+            severity: :convention,
+            line: 1,
+            column: 0,
+            source: "cask :v1 => 'foo'"
+          }
+        ]
       end
 
       include_examples 'reports offenses'
@@ -30,9 +36,15 @@ describe RuboCop::Cop::Cask::NoDslVersion do
       let(:source) { "cask :v1test => 'foo' do; end" }
       let(:correct_source) { "test_cask 'foo' do; end" }
       let(:expected_offenses) do
-        [{ message: "Use `test_cask 'foo'` instead of `cask :v1test => 'foo'`",
-           severity: :convention, line: 1, column: 0,
-           source: "cask :v1test => 'foo'" }]
+        [
+          {
+            message: "Use `test_cask 'foo'` instead of `cask :v1test => 'foo'`",
+            severity: :convention,
+            line: 1,
+            column: 0,
+            source: "cask :v1test => 'foo'"
+          }
+        ]
       end
 
       include_examples 'reports offenses'
@@ -52,9 +64,16 @@ describe RuboCop::Cop::Cask::NoDslVersion do
       let(:source) { "test_cask :v1 => 'foo' do; end" }
       let(:correct_source) { "test_cask 'foo' do; end" }
       let(:expected_offenses) do
-        [{ message: "Use `test_cask 'foo'` instead of `test_cask :v1 => 'foo'`",
-           severity: :convention, line: 1, column: 0,
-           source: "test_cask :v1 => 'foo'" }]
+        [
+          {
+            message: "Use `test_cask 'foo'` instead of "\
+                     "`test_cask :v1 => 'foo'`",
+            severity: :convention,
+            line: 1,
+            column: 0,
+            source: "test_cask :v1 => 'foo'"
+          }
+        ]
       end
 
       include_examples 'reports offenses'
