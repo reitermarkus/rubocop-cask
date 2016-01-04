@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.2.2](https://github.com/caskroom/rubocop-cask/tree/v0.2.2) (2016-01-04)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.2.1...v0.2.2)
+
+**Merged pull requests:**
+
+- Include comments when re-ordering stanzas [\#11](https://github.com/caskroom/rubocop-cask/pull/11) ([jawshooah](https://github.com/jawshooah))
+
 ## [v0.2.1](https://github.com/caskroom/rubocop-cask/tree/v0.2.1) (2016-01-04)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.2.0...v0.2.1)
 
