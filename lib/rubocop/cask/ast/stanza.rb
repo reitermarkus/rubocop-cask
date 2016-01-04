@@ -3,9 +3,9 @@ require 'forwardable'
 module RuboCop
   module Cask
     module AST
-      # This class wraps the AST send node that encapsulates the method call
-      # that comprises the stanza. It includes various helper methods to aid
-      # cops in their analysis.
+      # This class wraps the AST send/block node that encapsulates the method
+      # call that comprises the stanza. It includes various helper methods to
+      # aid cops in their analysis.
       class Stanza
         extend Forwardable
 

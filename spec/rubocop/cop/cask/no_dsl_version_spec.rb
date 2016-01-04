@@ -29,7 +29,7 @@ describe RuboCop::Cop::Cask::NoDslVersion do
 
       include_examples 'reports offenses'
 
-      include_examples 'autocorrects offenses'
+      include_examples 'autocorrects source'
     end
 
     context 'with dsl version containing "test"' do
@@ -49,7 +49,7 @@ describe RuboCop::Cop::Cask::NoDslVersion do
 
       include_examples 'reports offenses'
 
-      include_examples 'autocorrects offenses'
+      include_examples 'autocorrects source'
     end
   end
 
@@ -78,7 +78,7 @@ describe RuboCop::Cop::Cask::NoDslVersion do
 
       include_examples 'reports offenses'
 
-      include_examples 'autocorrects offenses'
+      include_examples 'autocorrects source'
     end
   end
 end
