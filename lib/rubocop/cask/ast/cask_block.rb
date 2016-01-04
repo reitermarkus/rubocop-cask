@@ -26,7 +26,8 @@ module RuboCop
         end
 
         def stanzas
-          @stanzas ||= cask_body.each_descendant(:send)
+          @stanzas ||= cask_body.descendants
+            .select(&:stanza?)
             .map { |n| Stanza.new(n) }
         end
 

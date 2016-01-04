@@ -18,6 +18,10 @@ module Astrolabe
       send_type? && CASK_METHOD_NAMES.include?(method_name)
     end
 
+    def stanza?
+      (send_type? || block_type?) && STANZA_ORDER.include?(method_name)
+    end
+
     def heredoc?
       loc.is_a?(Parser::Source::Map::Heredoc)
     end

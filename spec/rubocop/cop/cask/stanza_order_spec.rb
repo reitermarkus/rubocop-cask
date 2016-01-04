@@ -54,7 +54,7 @@ describe RuboCop::Cop::Cask::StanzaOrder do
 
     include_examples 'reports offenses'
 
-    include_examples 'autocorrects offenses'
+    include_examples 'autocorrects source'
   end
 
   context 'when many stanzas are out of order' do
@@ -118,7 +118,7 @@ describe RuboCop::Cop::Cask::StanzaOrder do
 
     include_examples 'reports offenses'
 
-    include_examples 'autocorrects offenses'
+    include_examples 'autocorrects source'
   end
 
   context 'when a stanza appears multiple times' do
@@ -150,22 +150,80 @@ describe RuboCop::Cop::Cask::StanzaOrder do
     end
 
     it 'preserves the original order' do
-      new_source = autocorrect_source(cop, source)
-      expect(new_source).to eq(Array(correct_source).join("\n"))
+      expect_autocorrected_source(cop, source, correct_source)
     end
   end
 
-  context 'when a stanza includes a heredoc' do
+  context 'when the caveats stanza is out of order' do
+    let(:source) do
+      format(<<-CASK.undent, caveats.strip)
+        cask 'foo' do
+          name 'Foo'
+          url 'https://foo.example.com/foo.zip'
+          %s
+          version :latest
+          app 'Foo.app'
+          sha256 :no_check
+        end
+      CASK
+    end
+    let(:correct_source) do
+      format(<<-CASK.undent, caveats.strip)
+        cask 'foo' do
+          version :latest
+          sha256 :no_check
+          url 'https://foo.example.com/foo.zip'
+          name 'Foo'
+          app 'Foo.app'
+          %s
+        end
+      CASK
+    end
+
+    context 'when caveats is a one-line string' do
+      let(:caveats) { "caveats 'This is a one-line caveat.'" }
+
+      include_examples 'autocorrects source'
+    end
+
+    context 'when caveats is a heredoc' do
+      let(:caveats) do
+        <<-CAVEATS.undent
+          caveats <<-EOS.undent
+              This is a multiline caveat.
+
+              Let's hope it doesn't cause any problems!
+            EOS
+        CAVEATS
+      end
+
+      include_examples 'autocorrects source'
+    end
+
+    context 'when caveats is a block' do
+      let(:caveats) do
+        <<-CAVEATS.undent
+          caveats do
+              puts 'This is a multiline caveat.'
+
+              puts "Let's hope it doesn't cause any problems!"
+            end
+        CAVEATS
+      end
+
+      include_examples 'autocorrects source'
+    end
+  end
+
+  context 'when the postflight stanza is out of order' do
     let(:source) do
       <<-CASK.undent
         cask 'foo' do
           name 'Foo'
           url 'https://foo.example.com/foo.zip'
-          caveats <<-EOS.undent
-            This is a multiline caveat.
-
-            Let's hope it doesn't cause any problems!
-          EOS
+          postflight do
+            puts 'We have liftoff!'
+          end
           version :latest
           app 'Foo.app'
           sha256 :no_check
@@ -180,19 +238,14 @@ describe RuboCop::Cop::Cask::StanzaOrder do
           url 'https://foo.example.com/foo.zip'
           name 'Foo'
           app 'Foo.app'
-          caveats <<-EOS.undent
-            This is a multiline caveat.
-
-            Let's hope it doesn't cause any problems!
-          EOS
+          postflight do
+            puts 'We have liftoff!'
+          end
         end
       CASK
     end
 
-    it 'autocorrects as expected' do
-      new_source = autocorrect_source(cop, source)
-      expect(new_source).to eq(Array(correct_source).join("\n"))
-    end
+    include_examples 'autocorrects source'
   end
 
   # TODO: detect out-of-order stanzas in nested expressions
