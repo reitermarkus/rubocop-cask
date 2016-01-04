@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.2.1](https://github.com/caskroom/rubocop-cask/tree/v0.2.1) (2016-01-04)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.2.0...v0.2.1)
+
+**Merged pull requests:**
+
+- Fix bug where blocks were not treated as stanzas [\#10](https://github.com/caskroom/rubocop-cask/pull/10) ([jawshooah](https://github.com/jawshooah))
+
 ## [v0.2.0](https://github.com/caskroom/rubocop-cask/tree/v0.2.0) (2016-01-03)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.1.0...v0.2.0)
 
