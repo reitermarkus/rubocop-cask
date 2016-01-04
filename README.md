@@ -7,7 +7,7 @@
 [![Code Climate](https://codeclimate.com/github/caskroom/rubocop-cask/badges/gpa.svg)](https://codeclimate.com/github/caskroom/rubocop-cask)
 [![Inline docs](http://inch-ci.org/github/caskroom/rubocop-cask.svg)](http://inch-ci.org/github/caskroom/rubocop-cask)
 
-Cask-specific analysis for your Homebrew-Cask taps, as an extension to
+Cask-specific analysis for your [Homebrew-Cask](https://github.com/caskroom/homebrew-cask) taps, as an extension to
 [RuboCop](https://github.com/bbatsov/rubocop). Heavily inspired by [`rubocop-rspec`](https://github.com/nevir/rubocop-rspec).
 
 
