@@ -40,11 +40,11 @@ module RuboCop
         end
 
         def offending_stanzas
-          offending = []
-          toplevel_stanzas.each_with_index do |stanza, i|
-            offending << stanza unless stanza == sorted_toplevel_stanzas[i]
+          stanza_pairs = toplevel_stanzas.zip(sorted_toplevel_stanzas)
+          stanza_pairs.each_with_object([]) do |stanza_pair, offending_stanzas|
+            stanza, sorted_stanza = *stanza_pair
+            offending_stanzas << stanza unless stanza == sorted_stanza
           end
-          offending
         end
       end
     end
