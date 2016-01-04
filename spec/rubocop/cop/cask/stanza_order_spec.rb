@@ -154,6 +154,39 @@ describe RuboCop::Cop::Cask::StanzaOrder do
     end
   end
 
+  context 'when a stanza has a comment' do
+    let(:source) do
+      <<-CASK.undent
+        cask 'foo' do
+          version :latest
+          # comment with an empty line between
+
+          # comment directly above
+          postflight do
+            puts 'We have liftoff!'
+          end
+          sha256 :no_check
+        end
+      CASK
+    end
+    let(:correct_source) do
+      <<-CASK.undent
+        cask 'foo' do
+          version :latest
+          sha256 :no_check
+          # comment with an empty line between
+
+          # comment directly above
+          postflight do
+            puts 'We have liftoff!'
+          end
+        end
+      CASK
+    end
+
+    include_examples 'autocorrects source'
+  end
+
   context 'when the caveats stanza is out of order' do
     let(:source) do
       format(<<-CASK.undent, caveats.strip)

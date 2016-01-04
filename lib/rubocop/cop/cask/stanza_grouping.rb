@@ -17,8 +17,8 @@ module RuboCop
         EXTRA_LINE_MSG = 'stanzas within the same group should have no lines ' \
                          'between them'
 
-        def on_cask(cask_node)
-          @cask_block = RuboCop::Cask::AST::CaskBlock.new(cask_node)
+        def on_cask(cask_block)
+          @cask_block = cask_block
           @line_ops = {}
           add_offenses
         end
@@ -69,7 +69,7 @@ module RuboCop
         end
 
         def index_of_line_after(stanza)
-          stanza.expression.last_line
+          stanza.source_range.last_line
         end
 
         def add_offense_missing_line(stanza)

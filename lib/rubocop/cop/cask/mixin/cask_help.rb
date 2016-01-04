@@ -8,7 +8,9 @@ module RuboCop
           return unless respond_to?(:on_cask)
           return unless block_node.cask_block?
 
-          on_cask(block_node)
+          comments = processed_source.comments
+          cask_block = RuboCop::Cask::AST::CaskBlock.new(block_node, comments)
+          on_cask(cask_block)
         end
       end
     end
