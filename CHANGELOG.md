@@ -3,14 +3,14 @@
 ## [v0.2.2](https://github.com/caskroom/rubocop-cask/tree/v0.2.2) (2016-01-04)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.2.1...v0.2.2)
 
-**Merged pull requests:**
+**Fixed bugs:**
 
 - Include comments when re-ordering stanzas [\#11](https://github.com/caskroom/rubocop-cask/pull/11) ([jawshooah](https://github.com/jawshooah))
 
 ## [v0.2.1](https://github.com/caskroom/rubocop-cask/tree/v0.2.1) (2016-01-04)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.2.0...v0.2.1)
 
-**Merged pull requests:**
+**Fixed bugs:**
 
 - Fix bug where blocks were not treated as stanzas [\#10](https://github.com/caskroom/rubocop-cask/pull/10) ([jawshooah](https://github.com/jawshooah))
 
@@ -20,6 +20,7 @@
 **Implemented enhancements:**
 
 - Cop: stanza order [\#1](https://github.com/caskroom/rubocop-cask/issues/1)
+- Implement StanzaOrder and StanzaGrouping cops [\#9](https://github.com/caskroom/rubocop-cask/pull/9) ([jawshooah](https://github.com/jawshooah))
 
 **Closed issues:**
 
@@ -27,7 +28,6 @@
 
 **Merged pull requests:**
 
-- Implement StanzaOrder and StanzaGrouping cops [\#9](https://github.com/caskroom/rubocop-cask/pull/9) ([jawshooah](https://github.com/jawshooah))
 - Add configuration for Code Climate Platform [\#7](https://github.com/caskroom/rubocop-cask/pull/7) ([jawshooah](https://github.com/jawshooah))
 
 ## [v0.1.0](https://github.com/caskroom/rubocop-cask/tree/v0.1.0) (2015-12-29)
