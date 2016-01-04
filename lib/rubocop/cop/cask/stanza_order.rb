@@ -12,8 +12,8 @@ module RuboCop
 
         MESSAGE = '`%s` stanza out of order'
 
-        def on_cask(cask_node)
-          @cask_block = RuboCop::Cask::AST::CaskBlock.new(cask_node)
+        def on_cask(cask_block)
+          @cask_block = cask_block
           add_offenses
         end
 
@@ -21,7 +21,8 @@ module RuboCop
           lambda do |corrector|
             correct_stanza_index = toplevel_stanzas.index(stanza)
             correct_stanza = sorted_toplevel_stanzas[correct_stanza_index]
-            corrector.replace(stanza.expression, correct_stanza.source)
+            corrector.replace(stanza.source_range_with_comments,
+                              correct_stanza.source_with_comments)
           end
         end
 
@@ -34,7 +35,7 @@ module RuboCop
         def add_offenses
           offending_stanzas.each do |stanza|
             message = format(MESSAGE, stanza.stanza_name)
-            add_offense(stanza, stanza.expression, message)
+            add_offense(stanza, stanza.source_range_with_comments, message)
           end
         end
 

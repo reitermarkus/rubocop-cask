@@ -9,11 +9,12 @@ module RuboCop
       class CaskBlock
         extend Forwardable
 
-        def initialize(block_node)
+        def initialize(block_node, comments)
           @block_node = block_node
+          @comments = comments
         end
 
-        attr_reader :block_node
+        attr_reader :block_node, :comments
 
         alias_method :cask_node, :block_node
 
@@ -28,7 +29,7 @@ module RuboCop
         def stanzas
           @stanzas ||= cask_body.descendants
             .select(&:stanza?)
-            .map { |n| Stanza.new(n) }
+            .map { |node| Stanza.new(node, stanza_comments(node)) }
         end
 
         def toplevel_stanzas
@@ -55,6 +56,15 @@ module RuboCop
 
         def stanza_order_index(stanza)
           Constants::STANZA_ORDER.index(stanza.stanza_name)
+        end
+
+        def stanza_comments(stanza_node)
+          comments_hash[stanza_node.loc]
+        end
+
+        def comments_hash
+          @comments_hash ||= Parser::Source::Comment
+            .associate_locations(cask_node, comments)
         end
       end
     end

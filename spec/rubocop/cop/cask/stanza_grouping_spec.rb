@@ -232,6 +232,48 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
     include_examples 'autocorrects source'
   end
 
+  context 'when a stanza has a comment' do
+    let(:source) do
+      <<-CASK.undent
+        cask 'foo' do
+          version :latest
+          sha256 :no_check
+          # comment with an empty line between
+
+          # comment directly above
+          postflight do
+            puts 'We have liftoff!'
+          end
+          url 'https://foo.example.com/foo.zip'
+          name 'Foo'
+          app 'Foo.app'
+        end
+      CASK
+    end
+    let(:correct_source) do
+      <<-CASK.undent
+        cask 'foo' do
+          version :latest
+          sha256 :no_check
+
+          # comment with an empty line between
+
+          # comment directly above
+          postflight do
+            puts 'We have liftoff!'
+          end
+
+          url 'https://foo.example.com/foo.zip'
+          name 'Foo'
+
+          app 'Foo.app'
+        end
+      CASK
+    end
+
+    include_examples 'autocorrects source'
+  end
+
   # TODO: detect incorrectly grouped stanzas in nested expressions
   context 'when stanzas are nested in a conditional expression' do
     let(:source) do
