@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.3.1](https://github.com/caskroom/rubocop-cask/tree/v0.3.1) (2016-01-05)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.3.0...v0.3.1)
+
 ## [v0.3.0](https://github.com/caskroom/rubocop-cask/tree/v0.3.0) (2016-01-05)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.2.2...v0.3.0)
 
