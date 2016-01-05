@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.3.0](https://github.com/caskroom/rubocop-cask/tree/v0.3.0) (2016-01-05)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.2.2...v0.3.0)
+
+**Implemented enhancements:**
+
+- Cop: check for comment when license :unknown [\#5](https://github.com/caskroom/rubocop-cask/issues/5)
+- Add cop LicenseUnknownComment [\#12](https://github.com/caskroom/rubocop-cask/pull/12) ([jawshooah](https://github.com/jawshooah))
+
 ## [v0.2.2](https://github.com/caskroom/rubocop-cask/tree/v0.2.2) (2016-01-04)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.2.1...v0.2.2)
 
