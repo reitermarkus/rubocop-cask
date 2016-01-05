@@ -18,16 +18,15 @@ module RuboCop
 
         alias_method :cask_node, :block_node
 
-        def cask_body
-          cask_node.block_body
-        end
+        def_delegator :cask_node, :block_body, :cask_body
 
         def header
           @header ||= CaskHeader.new(cask_node.method_node)
         end
 
         def stanzas
-          @stanzas ||= cask_body.descendants
+          return [] unless cask_body
+          @stanzas ||= cask_body.each_node
             .select(&:stanza?)
             .map { |node| Stanza.new(node, stanza_comments(node)) }
         end

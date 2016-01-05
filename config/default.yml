@@ -1,11 +1,15 @@
+Cask/LicenseUnknownComment:
+  Description: 'Always follow `license :unknown` with the machine-generated TODO comment.'
+  Enabled: true
+
 Cask/NoDslVersion:
   Description: 'Do not use the deprecated DSL version syntax in your cask header.'
   Enabled: true
 
-Cask/StanzaOrder:
-  Description: 'Ensure that cask stanzas are sorted correctly. More info at https://github.com/caskroom/homebrew-cask/blob/master/CONTRIBUTING.md#stanza-order'
-  Enabled: true
-
 Cask/StanzaGrouping:
   Description: 'Ensure that cask stanzas are grouped correctly. More info at https://github.com/caskroom/homebrew-cask/blob/master/CONTRIBUTING.md#stanza-order'
+  Enabled: true
+
+Cask/StanzaOrder:
+  Description: 'Ensure that cask stanzas are sorted correctly. More info at https://github.com/caskroom/homebrew-cask/blob/master/CONTRIBUTING.md#stanza-order'
   Enabled: true

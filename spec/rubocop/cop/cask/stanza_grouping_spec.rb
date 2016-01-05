@@ -41,15 +41,13 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
       CASK
     end
     let(:expected_offenses) do
-      [
-        {
-          message: extra_line_msg,
-          severity: :convention,
-          line: 3,
-          column: 0,
-          source: "\n"
-        }
-      ]
+      [{
+        message: extra_line_msg,
+        severity: :convention,
+        line: 3,
+        column: 0,
+        source: "\n"
+      }]
     end
 
     include_examples 'reports offenses'
@@ -95,36 +93,31 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
       CASK
     end
     let(:expected_offenses) do
-      [
-        {
-          message: missing_line_msg,
-          severity: :convention,
-          line: 4,
-          column: 0,
-          source: "  url 'https://foo.example.com/foo.zip'"
-        },
-        {
-          message: extra_line_msg,
-          severity: :convention,
-          line: 5,
-          column: 0,
-          source: "\n"
-        },
-        {
-          message: extra_line_msg,
-          severity: :convention,
-          line: 7,
-          column: 0,
-          source: "\n"
-        },
-        {
-          message: missing_line_msg,
-          severity: :convention,
-          line: 12,
-          column: 0,
-          source: "  uninstall :quit => 'com.example.foo',"
-        }
-      ]
+      [{
+        message: missing_line_msg,
+        severity: :convention,
+        line: 4,
+        column: 0,
+        source: "  url 'https://foo.example.com/foo.zip'"
+      }, {
+        message: extra_line_msg,
+        severity: :convention,
+        line: 5,
+        column: 0,
+        source: "\n"
+      }, {
+        message: extra_line_msg,
+        severity: :convention,
+        line: 7,
+        column: 0,
+        source: "\n"
+      }, {
+        message: missing_line_msg,
+        severity: :convention,
+        line: 12,
+        column: 0,
+        source: "  uninstall :quit => 'com.example.foo',"
+      }]
     end
 
     include_examples 'reports offenses'

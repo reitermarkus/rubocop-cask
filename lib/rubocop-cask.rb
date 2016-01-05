@@ -12,6 +12,7 @@ require 'rubocop/cask/inject'
 RuboCop::Cask::Inject.defaults!
 
 require 'rubocop/cop/cask/mixin/cask_help'
+require 'rubocop/cop/cask/license_unknown_comment'
 require 'rubocop/cop/cask/no_dsl_version'
 require 'rubocop/cop/cask/stanza_order'
 require 'rubocop/cop/cask/stanza_grouping'
