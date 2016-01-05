@@ -18,9 +18,7 @@ module RuboCop
 
         alias_method :cask_node, :block_node
 
-        def cask_body
-          cask_node.block_body
-        end
+        def_delegator :cask_node, :block_body, :cask_body
 
         def header
           @header ||= CaskHeader.new(cask_node.method_node)
