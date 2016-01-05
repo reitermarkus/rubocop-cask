@@ -10,8 +10,8 @@ module RuboCop
 
         COMMENT_TEXT = '# TODO: change license and remove this comment; ' \
                        "':unknown' is a machine-generated placeholder"
-        MISSING_MSG = "Missing required comment: `#{COMMENT_TEXT}'"
-        INLINE_MSG = "Comment belongs on the same line as `license :unknown'"
+        MISSING_MSG = "Missing required comment: `#{COMMENT_TEXT}`"
+        INLINE_MSG = 'Comment belongs on the same line as `license :unknown`'
 
         def on_cask(cask_block)
           license_stanza = cask_block.stanzas.find(&:license?)

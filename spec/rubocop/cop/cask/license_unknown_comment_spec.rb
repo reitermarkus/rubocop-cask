@@ -48,7 +48,7 @@ describe RuboCop::Cop::Cask::LicenseUnknownComment do
       end
       let(:expected_offenses) do
         [{
-          message: "Comment belongs on the same line as `license :unknown'",
+          message: 'Comment belongs on the same line as `license :unknown`',
           severity: :convention,
           line: 2,
           column: 2,
@@ -71,7 +71,7 @@ describe RuboCop::Cop::Cask::LicenseUnknownComment do
       end
       let(:expected_offenses) do
         [{
-          message: "Missing required comment: `#{license_unknown_comment}'",
+          message: "Missing required comment: `#{license_unknown_comment}`",
           severity: :convention,
           line: 2,
           column: 2,
