@@ -25,7 +25,8 @@ module RuboCop
         end
 
         def stanzas
-          @stanzas ||= cask_body.descendants
+          return [] unless cask_body
+          @stanzas ||= cask_body.each_node
             .select(&:stanza?)
             .map { |node| Stanza.new(node, stanza_comments(node)) }
         end
