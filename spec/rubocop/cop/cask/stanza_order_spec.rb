@@ -34,22 +34,19 @@ describe RuboCop::Cop::Cask::StanzaOrder do
       CASK
     end
     let(:expected_offenses) do
-      [
-        {
-          message: '`sha256` stanza out of order',
-          severity: :convention,
-          line: 2,
-          column: 2,
-          source: 'sha256 :no_check'
-        },
-        {
-          message: '`version` stanza out of order',
-          severity: :convention,
-          line: 3,
-          column: 2,
-          source: 'version :latest'
-        }
-      ]
+      [{
+        message: '`sha256` stanza out of order',
+        severity: :convention,
+        line: 2,
+        column: 2,
+        source: 'sha256 :no_check'
+      }, {
+        message: '`version` stanza out of order',
+        severity: :convention,
+        line: 3,
+        column: 2,
+        source: 'version :latest'
+      }]
     end
 
     include_examples 'reports offenses'
@@ -83,37 +80,32 @@ describe RuboCop::Cop::Cask::StanzaOrder do
       CASK
     end
     let(:expected_offenses) do
-      [
-        {
-          message: '`url` stanza out of order',
-          severity: :convention,
-          line: 2,
-          column: 2,
-          source: "url 'https://foo.example.com/foo.zip'"
-        },
-        {
-          message: '`uninstall` stanza out of order',
-          severity: :convention,
-          line: 3,
-          column: 2,
-          source: "uninstall :quit => 'com.example.foo',\n" \
+      [{
+        message: '`url` stanza out of order',
+        severity: :convention,
+        line: 2,
+        column: 2,
+        source: "url 'https://foo.example.com/foo.zip'"
+      }, {
+        message: '`uninstall` stanza out of order',
+        severity: :convention,
+        line: 3,
+        column: 2,
+        source: "uninstall :quit => 'com.example.foo',\n" \
                 "            :kext => 'com.example.foo.kext'"
-        },
-        {
-          message: '`version` stanza out of order',
-          severity: :convention,
-          line: 5,
-          column: 2,
-          source: 'version :latest'
-        },
-        {
-          message: '`sha256` stanza out of order',
-          severity: :convention,
-          line: 7,
-          column: 2,
-          source: 'sha256 :no_check'
-        }
-      ]
+      }, {
+        message: '`version` stanza out of order',
+        severity: :convention,
+        line: 5,
+        column: 2,
+        source: 'version :latest'
+      }, {
+        message: '`sha256` stanza out of order',
+        severity: :convention,
+        line: 7,
+        column: 2,
+        source: 'sha256 :no_check'
+      }]
     end
 
     include_examples 'reports offenses'
