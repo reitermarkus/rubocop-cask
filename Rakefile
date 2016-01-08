@@ -1,16 +1,7 @@
 require 'bundler/gem_tasks'
+require 'github_changelog_generator/task'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
-require 'github_changelog_generator/task'
-require 'rubocop-cask'
-
-begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts 'Run `bundle install` to install missing gems'
-  exit e.status_code
-end
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -33,24 +24,25 @@ task :repl do
   RuboCop.pry
 end
 
-def configure_changelog(config, release: nil)
-  config.user = 'caskroom'
-  config.project = 'rubocop-cask'
-  config.exclude_labels = %w(discussion duplicate invalid question wontfix)
-  config.future_release = "v#{release}" if release
-end
-
 namespace :changelog do
+  def configure_changelog(config, release: nil)
+    config.user = 'caskroom'
+    config.project = 'rubocop-cask'
+    config.exclude_labels = %w(discussion duplicate invalid question wontfix)
+    config.future_release = "v#{release}" if release
+  end
+
   GitHubChangelogGenerator::RakeTask.new(:unreleased) do |config|
     configure_changelog(config)
   end
 
   GitHubChangelogGenerator::RakeTask.new(:latest_release) do |config|
+    require 'rubocop/cask/version'
     configure_changelog(config, release: RuboCop::Cask::Version::STRING)
   end
 end
 
-task changelog: ['changelog:unreleased']
+task changelog: 'changelog:unreleased'
 
 Rake::Task['build'].enhance [:spec, 'rubocop:auto_correct',
                              'changelog:latest_release']
