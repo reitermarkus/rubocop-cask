@@ -16,7 +16,7 @@ describe 'RuboCop Project' do
     end
 
     it 'has configuration for all cops' do
-      expect(default_config.keys.sort).to eq((cop_names).sort)
+      expect(default_config.keys.sort).to eq(cop_names.sort)
     end
 
     it 'has a nicely formatted description for all cops' do

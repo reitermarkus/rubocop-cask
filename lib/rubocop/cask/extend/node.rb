@@ -1,5 +1,5 @@
-module Astrolabe
-  # Extensions for Astrolabe's AST Node class
+module RuboCop
+  # Extensions for RuboCop's AST Node class
   class Node
     include RuboCop::Cask::Constants
 

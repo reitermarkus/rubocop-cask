@@ -2,7 +2,7 @@ require 'rubocop'
 
 require 'rubocop/cask/constants'
 require 'rubocop/cask/extend/string'
-require 'rubocop/cask/extend/astrolabe/node'
+require 'rubocop/cask/extend/node'
 require 'rubocop/cask/ast/cask_header'
 require 'rubocop/cask/ast/cask_block'
 require 'rubocop/cask/ast/stanza'

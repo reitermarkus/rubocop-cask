@@ -52,7 +52,7 @@ describe RuboCop::Cop::Cask::LicenseUnknownComment do
           severity: :convention,
           line: 2,
           column: 2,
-          source: "#{license_unknown_comment}"
+          source: license_unknown_comment
         }]
       end
 

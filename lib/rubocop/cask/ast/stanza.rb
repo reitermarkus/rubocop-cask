@@ -16,7 +16,7 @@ module RuboCop
 
         attr_reader :method_node, :comments
 
-        alias_method :stanza_node, :method_node
+        alias stanza_node method_node
 
         def_delegator :stanza_node, :method_name, :stanza_name
         def_delegator :stanza_node, :parent, :parent_node
@@ -51,7 +51,7 @@ module RuboCop
           self.class == other.class && stanza_node == other.stanza_node
         end
 
-        alias_method :eql?, :==
+        alias eql? ==
 
         Constants::STANZA_ORDER.each do |stanza_name|
           class_eval <<-EOS, __FILE__, __LINE__
