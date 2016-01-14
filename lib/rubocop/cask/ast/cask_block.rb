@@ -16,7 +16,7 @@ module RuboCop
 
         attr_reader :block_node, :comments
 
-        alias_method :cask_node, :block_node
+        alias cask_node block_node
 
         def_delegator :cask_node, :block_body, :cask_body
 
@@ -43,13 +43,13 @@ module RuboCop
 
         def sort_stanzas(stanzas)
           stanzas.sort do |s1, s2|
-            i1, i2 = [s1, s2].map { |s| stanza_order_index(s) }
-            if i1 != i2
-              i1 - i2
-            else
-              i1, i2 = [s1, s2].map { |s| stanzas.index(s) }
-              i1 - i2
+            i1 = stanza_order_index(s1)
+            i2 = stanza_order_index(s2)
+            if i1 == i2
+              i1 = stanzas.index(s1)
+              i2 = stanzas.index(s2)
             end
+            i1 - i2
           end
         end
 

@@ -22,5 +22,12 @@ Style/FileName:
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
 
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
 Style/MultilineOperationIndentation:
   EnforcedStyle: indented
+
+# to be re-enabled once bbatsov/rubocop#2634 is merged
+Style/MutableConstant:
+  Enabled: false
