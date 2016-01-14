@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.4.0](https://github.com/caskroom/rubocop-cask/tree/v0.4.0) (2016-01-14)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.3.1...v0.4.0)
+
+**Implemented enhancements:**
+
+- Add rubocop-rspec checks [\#13](https://github.com/caskroom/rubocop-cask/pull/13) ([jawshooah](https://github.com/jawshooah))
+
+**Merged pull requests:**
+
+- Update rubocop dependency to 0.36 [\#14](https://github.com/caskroom/rubocop-cask/pull/14) ([jawshooah](https://github.com/jawshooah))
+
 ## [v0.3.1](https://github.com/caskroom/rubocop-cask/tree/v0.3.1) (2016-01-05)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.3.0...v0.3.1)
 
