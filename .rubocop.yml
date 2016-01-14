@@ -1,4 +1,4 @@
-require: rubocop-rspec
+# require: rubocop-rspec
 
 AllCops:
   Exclude:
@@ -8,12 +8,12 @@ Metrics/AbcSize:
   Exclude:
     - spec/**/*
 
-RSpec/DescribeClass:
-  Exclude:
-    - spec/project_spec.rb
+# RSpec/DescribeClass:
+#   Exclude:
+#     - spec/project_spec.rb
 
-RSpec/VerifiedDoubles:
-  Enabled: true
+# RSpec/VerifiedDoubles:
+#   Enabled: true
 
 Style/FileName:
   Exclude:

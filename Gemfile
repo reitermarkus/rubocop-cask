@@ -11,7 +11,7 @@ group :test do
   gem 'overcommit', '~> 0.30', require: false
   gem 'rake', '~> 10.4', require: false
   gem 'rspec', '~> 3.4', require: false
-  gem 'rubocop-rspec', '~> 1.3', require: false
+  # gem 'rubocop-rspec', '~> 1.3', require: false
   gem 'simplecov', '~> 0.11', require: false
   gem 'travis', '~> 1.8', require: false
   gem 'codeclimate-test-reporter', require: false
