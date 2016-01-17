@@ -10,7 +10,6 @@
 Cask-specific analysis for your [Homebrew-Cask](https://github.com/caskroom/homebrew-cask) taps, as an extension to
 [RuboCop](https://github.com/bbatsov/rubocop). Heavily inspired by [`rubocop-rspec`](https://github.com/nevir/rubocop-rspec).
 
-
 ## Installation
 
 Just install the `rubocop-cask` gem
@@ -21,7 +20,7 @@ gem install rubocop-cask
 
 or if you use bundler put this in your `Gemfile`
 
-```
+```ruby
 gem 'rubocop-cask'
 ```
 
@@ -34,7 +33,7 @@ You need to tell RuboCop to load the Cask extension. There are three ways to do 
 
 Put this into your `.rubocop.yml`:
 
-```
+```yaml
 require: rubocop-cask
 ```
 
