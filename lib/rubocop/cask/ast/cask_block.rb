@@ -58,7 +58,9 @@ module RuboCop
         end
 
         def stanza_comments(stanza_node)
-          comments_hash[stanza_node.loc]
+          stanza_node.each_node.reduce([]) do |comments, node|
+            comments | comments_hash[node.loc]
+          end
         end
 
         def comments_hash
