@@ -157,7 +157,7 @@ describe RuboCop::Cop::Cask::StanzaOrder do
           postflight do
             puts 'We have liftoff!'
           end
-          sha256 :no_check
+          sha256 :no_check # comment on same line
         end
       CASK
     end
@@ -165,7 +165,7 @@ describe RuboCop::Cop::Cask::StanzaOrder do
       <<-CASK.undent
         cask 'foo' do
           version :latest
-          sha256 :no_check
+          sha256 :no_check # comment on same line
           # comment with an empty line between
 
           # comment directly above
