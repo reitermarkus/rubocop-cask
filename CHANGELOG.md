@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.4.1](https://github.com/caskroom/rubocop-cask/tree/v0.4.1) (2016-01-17)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.4.0...v0.4.1)
+
+**Fixed bugs:**
+
+- Keep inline comments on same line [\#15](https://github.com/caskroom/rubocop-cask/pull/15) ([jawshooah](https://github.com/jawshooah))
+
 ## [v0.4.0](https://github.com/caskroom/rubocop-cask/tree/v0.4.0) (2016-01-14)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.3.1...v0.4.0)
 
