@@ -1,7 +1,3 @@
-Cask/LicenseUnknownComment:
-  Description: 'Always follow `license :unknown` with the machine-generated TODO comment.'
-  Enabled: true
-
 Cask/NoDslVersion:
   Description: 'Do not use the deprecated DSL version syntax in your cask header.'
   Enabled: true
