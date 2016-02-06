@@ -3,7 +3,7 @@ require 'rubocop'
 project_path = File.join(File.dirname(__FILE__), '..')
 rubocop_path = File.join(project_path, 'vendor/rubocop')
 unless File.directory?(rubocop_path)
-  fail "Can't run specs without a local RuboCop checkout. Look in the README."
+  raise "Can't run specs without a local RuboCop checkout. Look in the README."
 end
 Dir["#{rubocop_path}/spec/support/**/*.rb"].each { |f| require f }
 Dir["#{project_path}/spec/support/**/*.rb"].each { |f| require f }
