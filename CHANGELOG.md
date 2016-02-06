@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.5.0](https://github.com/caskroom/rubocop-cask/tree/v0.5.0) (2016-02-05)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.4.1...v0.5.0)
+
+**Implemented enhancements:**
+
+- Remove LicenseUnknownComment cop [\#17](https://github.com/caskroom/rubocop-cask/pull/17) ([jawshooah](https://github.com/jawshooah))
+
+**Fixed bugs:**
+
+- Bug with setting comment for `license :unknown` [\#16](https://github.com/caskroom/rubocop-cask/issues/16)
+
 ## [v0.4.1](https://github.com/caskroom/rubocop-cask/tree/v0.4.1) (2016-01-17)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.4.0...v0.4.1)
 
