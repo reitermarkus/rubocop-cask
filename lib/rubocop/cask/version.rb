@@ -4,7 +4,7 @@ module RuboCop
   module Cask
     # Version information for the Cask RuboCop plugin.
     module Version
-      STRING = '0.5.0'
+      STRING = '0.6.0'
 
       def self.gem_version
         Gem::Version.new(STRING)
