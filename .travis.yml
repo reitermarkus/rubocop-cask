@@ -19,7 +19,7 @@ matrix:
   fast_finish: true
 
 before_install:
-  - gem update --system --no-ri --no-rdoc
+  - gem update --system 2.6.1 --no-ri --no-rdoc
   - gem update --remote bundler
 
 before_script:
