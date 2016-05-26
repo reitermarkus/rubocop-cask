@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.6.1](https://github.com/caskroom/rubocop-cask/tree/v0.6.1) (2016-05-26)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.6.0...v0.6.1)
+
+**Merged pull requests:**
+
+- Fix case where there is only one stanza \(common in test casks\) [\#22](https://github.com/caskroom/rubocop-cask/pull/22) ([jawshooah](https://github.com/jawshooah))
+
 ## [v0.6.0](https://github.com/caskroom/rubocop-cask/tree/v0.6.0) (2016-05-15)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.5.0...v0.6.0)
 
