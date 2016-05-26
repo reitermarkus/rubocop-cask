@@ -44,7 +44,7 @@ module RuboCop
         end
 
         def toplevel_stanza?
-          parent_node.parent.cask_block?
+          parent_node.cask_block? || parent_node.parent.cask_block?
         end
 
         def ==(other)

@@ -9,6 +9,18 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
     'stanzas within the same group should have no lines between them'
   end
 
+  context 'when there is only one stanza' do
+    let(:source) do
+      <<-CASK.undent
+        cask 'foo' do
+          version :latest
+        end
+      CASK
+    end
+
+    include_examples 'does not report any offenses'
+  end
+
   context 'when no stanzas are incorrectly grouped' do
     let(:source) do
       <<-CASK.undent
