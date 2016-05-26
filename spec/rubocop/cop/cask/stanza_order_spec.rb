@@ -3,6 +3,18 @@ describe RuboCop::Cop::Cask::StanzaOrder do
 
   subject(:cop) { described_class.new }
 
+  context 'when there is only one stanza' do
+    let(:source) do
+      <<-CASK.undent
+        cask 'foo' do
+          version :latest
+        end
+      CASK
+    end
+
+    include_examples 'does not report any offenses'
+  end
+
   context 'when no stanzas are out of order' do
     let(:source) do
       <<-CASK.undent
