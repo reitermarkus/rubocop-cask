@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.7.0](https://github.com/caskroom/rubocop-cask/tree/v0.7.0) (2016-06-30)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.6.1...v0.7.0)
+
+**Merged pull requests:**
+
+- Add settings for default cops [\#24](https://github.com/caskroom/rubocop-cask/pull/24) ([jawshooah](https://github.com/jawshooah))
+- Update rubocop dependency to 0.41.1 [\#23](https://github.com/caskroom/rubocop-cask/pull/23) ([jawshooah](https://github.com/jawshooah))
+
 ## [v0.6.1](https://github.com/caskroom/rubocop-cask/tree/v0.6.1) (2016-05-26)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.6.0...v0.6.1)
 
