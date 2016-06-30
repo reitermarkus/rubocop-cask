@@ -15,8 +15,12 @@ describe 'RuboCop Project' do
       RuboCop::ConfigLoader.load_file('config/default.yml')
     end
 
+    let(:cask_config_keys) do
+      default_config.keys.select { |k| k.start_with?('Cask/') }
+    end
+
     it 'has configuration for all cops' do
-      expect(default_config.keys.sort).to eq(cop_names.sort)
+      expect(cask_config_keys.sort).to eq(cop_names.sort)
     end
 
     it 'has a nicely formatted description for all cops' do
