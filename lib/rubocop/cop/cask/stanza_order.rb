@@ -10,7 +10,7 @@ module RuboCop
         extend Forwardable
         include CaskHelp
 
-        MESSAGE = '`%s` stanza out of order'
+        MESSAGE = '`%s` stanza out of order'.freeze
 
         def on_cask(cask_block)
           @cask_block = cask_block

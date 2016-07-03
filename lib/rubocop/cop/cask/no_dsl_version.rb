@@ -19,7 +19,7 @@ module RuboCop
         extend Forwardable
         include CaskHelp
 
-        MESSAGE = 'Use `%s` instead of `%s`'
+        MESSAGE = 'Use `%s` instead of `%s`'.freeze
 
         def on_cask(cask_block)
           @cask_header = cask_block.header
