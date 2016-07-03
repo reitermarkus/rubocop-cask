@@ -11,10 +11,10 @@ module RuboCop
         include CaskHelp
 
         MISSING_LINE_MSG = 'stanza groups should be separated by a single ' \
-                           'empty line'
+                           'empty line'.freeze
 
         EXTRA_LINE_MSG = 'stanzas within the same group should have no lines ' \
-                         'between them'
+                         'between them'.freeze
 
         def on_cask(cask_block)
           @cask_block = cask_block

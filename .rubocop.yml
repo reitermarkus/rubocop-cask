@@ -8,6 +8,10 @@ Metrics/AbcSize:
   Exclude:
     - spec/**/*
 
+Metrics/LineLength:
+  Exclude:
+    - lib/rubocop/cop/cask/homepage_matches_url.rb
+
 # RSpec/DescribeClass:
 #   Exclude:
 #     - spec/project_spec.rb
@@ -27,7 +31,3 @@ Style/MultilineMethodCallIndentation:
 
 Style/MultilineOperationIndentation:
   EnforcedStyle: indented
-
-# to be re-enabled once bbatsov/rubocop#2634 is merged
-Style/MutableConstant:
-  Enabled: false
