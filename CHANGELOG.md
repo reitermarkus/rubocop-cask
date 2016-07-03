@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.8.0](https://github.com/caskroom/rubocop-cask/tree/v0.8.0) (2016-07-03)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.7.0...v0.8.0)
+
+**Merged pull requests:**
+
+- Add Cop to check for matching Homepage and URL. [\#25](https://github.com/caskroom/rubocop-cask/pull/25) ([reitermarkus](https://github.com/reitermarkus))
+
 ## [v0.7.0](https://github.com/caskroom/rubocop-cask/tree/v0.7.0) (2016-06-30)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.6.1...v0.7.0)
 
