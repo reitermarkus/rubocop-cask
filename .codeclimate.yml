@@ -21,5 +21,3 @@ ratings:
     - Rakefile
     - rubocop-cask.gemspec
     - '**/*.rb'
-exclude_paths:
-  - vendor/**/*
