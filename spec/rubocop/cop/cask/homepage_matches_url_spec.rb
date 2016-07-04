@@ -50,6 +50,20 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
   end
 
   context 'when the url does not match the homepage' do
+    context 'and there is a comment with a matching url with slashes' do
+      let(:source) do
+        <<-CASK.undent
+          cask 'foo' do
+            # example.com/vendor/app was verified as official when first introduced to the cask
+            url 'https://downloads.example.com/vendor/app/foo.zip'
+            homepage 'https://vendor.example.com/app/'
+          end
+        CASK
+      end
+
+      include_examples 'does not report any offenses'
+    end
+
     context 'and there is a comment' do
       context 'which matches the url' do
         let(:source) do
@@ -77,7 +91,7 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
         end
         let(:expected_offenses) do
           [{
-            message: '`example.org` does not match `example.com`',
+            message: '`example.org` does not match `example.com/foo.zip`',
             severity: :convention,
             line: 2,
             column: 2,
