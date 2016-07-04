@@ -98,7 +98,7 @@ module RuboCop
         end
 
         def url_match_homepage?(stanza)
-          domain(stanza).end_with?(homepage)
+          PublicSuffix.domain(domain(stanza)) == homepage
         end
 
         def full_url(stanza)
