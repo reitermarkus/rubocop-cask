@@ -90,7 +90,9 @@ module RuboCop
         end
 
         def extract_url(stanza)
-          stanza.stanza_node.children[2].str_content
+          string = stanza.stanza_node.children[2]
+          string = string.children[0] until string.str_type? || string.nil?
+          string.str_type? ? string.str_content : ''
         end
 
         def url_match_homepage?(stanza)

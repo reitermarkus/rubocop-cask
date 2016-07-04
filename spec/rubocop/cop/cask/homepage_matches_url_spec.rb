@@ -37,6 +37,21 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
       include_examples 'does not report any offenses'
     end
 
+    context 'and the url stanza has interpolation and a referrer' do
+      let(:source) do
+        <<-CASK.undent
+          cask 'foo' do
+            version '1.8.0_72,8.13.0.5'
+            url "https://foo.example.com/foo-\#{version.after_comma}-\#{version.minor}.\#{version.patch}.\#{version.before_comma.sub(\%r{.*_}, '')}.zip",
+                referrer: 'https://example.com/foo/'
+            homepage 'https://foo.example.com'
+          end
+        CASK
+      end
+
+      include_examples 'does not report any offenses'
+    end
+
     context 'but there is a comment' do
       let(:source) do
         <<-CASK.undent
