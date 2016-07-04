@@ -66,7 +66,7 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
       end
       let(:expected_offenses) do
         [{
-          message: '`foo.example.com` matches `foo.example.com`, ' \
+          message: '`foo.example.com` matches `example.com`, ' \
                    'the comment above the `url` stanza is unnecessary',
           severity: :convention,
           line: 2,
@@ -83,13 +83,13 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
   context 'when the url does not match the homepage' do
     context 'and there is a comment' do
       context 'which matches the url' do
-        context 'and does not have has slashes' do
+        context 'and does not have slashes' do
           let(:source) do
             <<-CASK.undent
               cask 'foo' do
                 # example.com was verified as official when first introduced to the cask
                 url 'https://example.com/foo.zip'
-                homepage 'https://foo.example.com'
+                homepage 'https://foo.example.org'
               end
             CASK
           end
@@ -103,7 +103,7 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
               cask 'foo' do
                 # example.com/vendor/app was verified as official when first introduced to the cask
                 url 'https://downloads.example.com/vendor/app/foo.zip'
-                homepage 'https://vendor.example.com/app/'
+                homepage 'https://vendor.example.org/app/'
               end
             CASK
           end
@@ -116,19 +116,19 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
         let(:source) do
           <<-CASK.undent
             cask 'foo' do
-              # example.org was verified as official when first introduced to the cask
-              url 'https://example.com/foo.zip'
+              # example.com was verified as official when first introduced to the cask
+              url 'https://example.org/foo.zip'
               homepage 'https://foo.example.com'
             end
           CASK
         end
         let(:expected_offenses) do
           [{
-            message: '`example.org` does not match `example.com/foo.zip`',
+            message: '`example.com` does not match `example.org/foo.zip`',
             severity: :convention,
             line: 2,
             column: 2,
-            source: '# example.org was verified as official when ' \
+            source: '# example.com was verified as official when ' \
                     'first introduced to the cask'
           }]
         end
@@ -142,13 +142,13 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
         <<-CASK.undent
           cask 'foo' do
             url 'https://example.com/foo.zip'
-            homepage 'https://foo.example.com'
+            homepage 'https://example.org'
           end
         CASK
       end
       let(:expected_offenses) do
         [{
-          message: '`example.com` does not match `foo.example.com`, a ' \
+          message: '`example.com` does not match `example.org`, a ' \
                    'comment in the form of `# example.com was verified as ' \
                    'official when first introduced to the cask` has to be ' \
                    'added above the `url` stanza',
