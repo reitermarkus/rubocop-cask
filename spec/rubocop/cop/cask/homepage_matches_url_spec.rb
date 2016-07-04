@@ -55,28 +55,44 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
     end
 
     context 'but there is a comment' do
-      let(:source) do
-        <<-CASK.undent
-          cask 'foo' do
-            # foo.example.com was verified as official when first introduced to the cask
-            url 'https://foo.example.com/foo.zip'
-            homepage 'https://foo.example.com'
-          end
-        CASK
-      end
-      let(:expected_offenses) do
-        [{
-          message: '`foo.example.com` matches `example.com`, ' \
-                   'the comment above the `url` stanza is unnecessary',
-          severity: :convention,
-          line: 2,
-          column: 2,
-          source: '# foo.example.com was verified as official when ' \
-                  'first introduced to the cask'
-        }]
+      context 'which does not match the url' do
+        let(:source) do
+          <<-CASK.undent
+            cask 'foo' do
+              # this is just a comment with information
+              url 'https://example.com/foo.zip'
+              homepage 'https://example.com'
+            end
+          CASK
+        end
+
+        include_examples 'does not report any offenses'
       end
 
-      include_examples 'reports offenses'
+      context 'which matches the url' do
+        let(:source) do
+          <<-CASK.undent
+            cask 'foo' do
+              # foo.example.com was verified as official when first introduced to the cask
+              url 'https://foo.example.com/foo.zip'
+              homepage 'https://foo.example.com'
+            end
+          CASK
+        end
+        let(:expected_offenses) do
+          [{
+            message: '`foo.example.com` matches `example.com`, ' \
+                     'the comment above the `url` stanza is unnecessary',
+            severity: :convention,
+            line: 2,
+            column: 2,
+            source: '# foo.example.com was verified as official when ' \
+                    'first introduced to the cask'
+          }]
+        end
+
+        include_examples 'reports offenses'
+      end
     end
   end
 

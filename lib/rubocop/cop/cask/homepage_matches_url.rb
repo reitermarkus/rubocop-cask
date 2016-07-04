@@ -36,7 +36,7 @@ module RuboCop
         def add_offenses
           toplevel_stanzas.select(&:url?).each do |url|
             if url_match_homepage?(url)
-              next unless comment?(url)
+              next unless comment?(url) && comment_matches_url?(url)
               add_offense_unnecessary_comment(url)
             elsif !comment?(url)
               add_offense_missing_comment(url)
