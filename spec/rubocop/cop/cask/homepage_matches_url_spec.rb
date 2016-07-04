@@ -24,32 +24,34 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
     end
 
     context 'and the url stanza has a referrer' do
-      let(:source) do
-        <<-CASK.undent
-          cask 'foo' do
-            url 'https://foo.example.com/foo.zip',
-                referrer: 'https://example.com/foo/'
-            homepage 'https://foo.example.com'
-          end
-        CASK
+      context 'and no interpolation' do
+        let(:source) do
+          <<-CASK.undent
+            cask 'foo' do
+              url 'https://foo.example.com/foo.zip',
+                  referrer: 'https://example.com/foo/'
+              homepage 'https://foo.example.com'
+            end
+          CASK
+        end
+
+        include_examples 'does not report any offenses'
       end
 
-      include_examples 'does not report any offenses'
-    end
+      context 'and interpolation' do
+        let(:source) do
+          <<-CASK.undent
+            cask 'foo' do
+              version '1.8.0_72,8.13.0.5'
+              url "https://foo.example.com/foo-\#{version.after_comma}-\#{version.minor}.\#{version.patch}.\#{version.before_comma.sub(\%r{.*_}, '')}.zip",
+                  referrer: 'https://example.com/foo/'
+              homepage 'https://foo.example.com'
+            end
+          CASK
+        end
 
-    context 'and the url stanza has interpolation and a referrer' do
-      let(:source) do
-        <<-CASK.undent
-          cask 'foo' do
-            version '1.8.0_72,8.13.0.5'
-            url "https://foo.example.com/foo-\#{version.after_comma}-\#{version.minor}.\#{version.patch}.\#{version.before_comma.sub(\%r{.*_}, '')}.zip",
-                referrer: 'https://example.com/foo/'
-            homepage 'https://foo.example.com'
-          end
-        CASK
+        include_examples 'does not report any offenses'
       end
-
-      include_examples 'does not report any offenses'
     end
 
     context 'but there is a comment' do
@@ -79,33 +81,35 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
   end
 
   context 'when the url does not match the homepage' do
-    context 'and there is a comment with a matching url with slashes' do
-      let(:source) do
-        <<-CASK.undent
-          cask 'foo' do
-            # example.com/vendor/app was verified as official when first introduced to the cask
-            url 'https://downloads.example.com/vendor/app/foo.zip'
-            homepage 'https://vendor.example.com/app/'
-          end
-        CASK
-      end
-
-      include_examples 'does not report any offenses'
-    end
-
     context 'and there is a comment' do
       context 'which matches the url' do
-        let(:source) do
-          <<-CASK.undent
-            cask 'foo' do
-              # example.com was verified as official when first introduced to the cask
-              url 'https://example.com/foo.zip'
-              homepage 'https://foo.example.com'
-            end
-          CASK
+        context 'and does not have has slashes' do
+          let(:source) do
+            <<-CASK.undent
+              cask 'foo' do
+                # example.com was verified as official when first introduced to the cask
+                url 'https://example.com/foo.zip'
+                homepage 'https://foo.example.com'
+              end
+            CASK
+          end
+
+          include_examples 'does not report any offenses'
         end
 
-        include_examples 'does not report any offenses'
+        context 'and has slashes' do
+          let(:source) do
+            <<-CASK.undent
+              cask 'foo' do
+                # example.com/vendor/app was verified as official when first introduced to the cask
+                url 'https://downloads.example.com/vendor/app/foo.zip'
+                homepage 'https://vendor.example.com/app/'
+              end
+            CASK
+          end
+
+          include_examples 'does not report any offenses'
+        end
       end
 
       context 'which does not match the url' do
