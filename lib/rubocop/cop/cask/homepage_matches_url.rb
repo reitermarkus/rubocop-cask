@@ -82,7 +82,7 @@ module RuboCop
         end
 
         def strip_http(url)
-          url.sub(%r{^.*://(?=www\.)?}, '')
+          url.sub(%r{^.*://(www\.)?}, '')
         end
 
         def domain(stanza)
@@ -91,8 +91,8 @@ module RuboCop
 
         def extract_url(stanza)
           string = stanza.stanza_node.children[2]
-          string = string.children[0] until string.str_type? || string.nil?
-          string.str_type? ? string.str_content : ''
+          return string.str_content if string.str_type?
+          string.to_s.gsub(%r{.*"([a-z0-9]+\:\/\/[^"]+)".*}m, '\1')
         end
 
         def url_match_homepage?(stanza)
