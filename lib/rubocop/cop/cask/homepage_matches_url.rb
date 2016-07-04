@@ -87,6 +87,8 @@ module RuboCop
 
         def extract_stanza(stanza)
           stanza.source
+            .gsub(/(\{.*)\s(.*\})/, '\1\2')
+            .gsub(/,\s+.*$/, '')
             .sub(/#{stanza.stanza_name} \'(.*)\'/, '\1')
             .sub(/#{stanza.stanza_name} \"(.*)\"/, '\1')
         end
