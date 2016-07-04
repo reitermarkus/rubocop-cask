@@ -1,4 +1,5 @@
 require 'forwardable'
+require 'public_suffix'
 
 module RuboCop
   module Cop
@@ -81,12 +82,12 @@ module RuboCop
           full_url(stanza).include?(url_from_comment(stanza))
         end
 
-        def strip_http(url)
+        def strip_url_scheme(url)
           url.sub(%r{^.*://(www\.)?}, '')
         end
 
         def domain(stanza)
-          strip_http(extract_url(stanza)).gsub(%r{^([^/]+).*}, '\1')
+          strip_url_scheme(extract_url(stanza)).gsub(%r{^([^/]+).*}, '\1')
         end
 
         def extract_url(stanza)
@@ -100,11 +101,11 @@ module RuboCop
         end
 
         def full_url(stanza)
-          strip_http(extract_url(stanza))
+          strip_url_scheme(extract_url(stanza))
         end
 
         def homepage
-          domain(toplevel_stanzas.find(&:homepage?))
+          PublicSuffix.domain(full_url(toplevel_stanzas.find(&:homepage?)))
         end
       end
     end
