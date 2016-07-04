@@ -96,7 +96,7 @@ module RuboCop
         end
 
         def url_match_homepage?(stanza)
-          domain(stanza).include?(homepage)
+          domain(stanza).end_with?(homepage)
         end
 
         def full_url(stanza)
