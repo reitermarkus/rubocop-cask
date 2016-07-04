@@ -15,7 +15,7 @@ module RuboCop
         MSG_NO_MATCH = '`%s` does not match `%s`'.freeze
 
         MSG_MISSING = '`%s` does not match `%s`, a comment in the form of ' \
-                      '`# example.com was verified as official when first ' \
+                      '`# %s was verified as official when first ' \
                       'introduced to the cask` has to be added above the ' \
                       '`url` stanza'.freeze
 
@@ -48,7 +48,8 @@ module RuboCop
 
         def add_offense_missing_comment(stanza)
           range = stanza.source_range
-          add_offense(range, range, format(MSG_MISSING, domain(stanza), homepage))
+          url_domain = domain(stanza)
+          add_offense(range, range, format(MSG_MISSING, url_domain, homepage, url_domain))
         end
 
         def add_offense_unnecessary_comment(stanza)
