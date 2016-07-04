@@ -47,21 +47,21 @@ module RuboCop
 
         def add_offense_missing_comment(stanza)
           range = stanza.source_range
-          add_offense(range, range, format(MSG_MISSING, url(stanza), homepage))
+          add_offense(range, range, format(MSG_MISSING, domain(stanza), homepage))
         end
 
         def add_offense_unnecessary_comment(stanza)
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       comment,
-                      format(MSG_UNNECESSARY, url(stanza), homepage))
+                      format(MSG_UNNECESSARY, domain(stanza), homepage))
         end
 
         def add_offense_no_match(stanza)
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       comment,
-                      format(MSG_NO_MATCH, url_from_comment(stanza), url(stanza)))
+                      format(MSG_NO_MATCH, url_from_comment(stanza), full_url(stanza)))
         end
 
         def comment?(stanza)
@@ -78,7 +78,7 @@ module RuboCop
         end
 
         def comment_matches_url?(stanza)
-          url(stanza).include?(url_from_comment(stanza))
+          full_url(stanza).include?(url_from_comment(stanza))
         end
 
         def strip_http(url)
@@ -91,20 +91,20 @@ module RuboCop
             .sub(/#{stanza.stanza_name} \"(.*)\"/, '\1')
         end
 
-        def domain(url)
-          strip_http(url).gsub(%r{^([^/]+).*}, '\1')
+        def domain(stanza)
+          strip_http(extract_stanza(stanza)).gsub(%r{^([^/]+).*}, '\1')
         end
 
-        def url_match_homepage?(url)
-          url(url).include?(homepage)
+        def url_match_homepage?(stanza)
+          domain(stanza).include?(homepage)
         end
 
-        def url(stanza)
-          domain(extract_stanza(stanza))
+        def full_url(stanza)
+          strip_http(extract_stanza(stanza))
         end
 
         def homepage
-          url(toplevel_stanzas.find(&:homepage?))
+          domain(toplevel_stanzas.find(&:homepage?))
         end
       end
     end
