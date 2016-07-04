@@ -85,16 +85,12 @@ module RuboCop
           url.sub(%r{^.*://(?=www\.)?}, '')
         end
 
-        def extract_stanza(stanza)
-          stanza.source
-            .gsub(/(\{.*)\s(.*\})/, '\1\2')
-            .gsub(/,\s+.*$/, '')
-            .sub(/#{stanza.stanza_name} \'(.*)\'/, '\1')
-            .sub(/#{stanza.stanza_name} \"(.*)\"/, '\1')
+        def domain(stanza)
+          strip_http(extract_url(stanza)).gsub(%r{^([^/]+).*}, '\1')
         end
 
-        def domain(stanza)
-          strip_http(extract_stanza(stanza)).gsub(%r{^([^/]+).*}, '\1')
+        def extract_url(stanza)
+          stanza.stanza_node.children[2].str_content
         end
 
         def url_match_homepage?(stanza)
@@ -102,7 +98,7 @@ module RuboCop
         end
 
         def full_url(stanza)
-          strip_http(extract_stanza(stanza))
+          strip_http(extract_url(stanza))
         end
 
         def homepage
