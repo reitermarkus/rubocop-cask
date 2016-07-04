@@ -106,7 +106,7 @@ module RuboCop
         end
 
         def homepage
-          PublicSuffix.domain(full_url(toplevel_stanzas.find(&:homepage?)))
+          PublicSuffix.domain(domain(toplevel_stanzas.find(&:homepage?)))
         end
       end
     end
