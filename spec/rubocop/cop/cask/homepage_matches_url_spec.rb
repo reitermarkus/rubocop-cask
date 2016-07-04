@@ -23,6 +23,20 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
       include_examples 'does not report any offenses'
     end
 
+    context 'and the url stanza has a referrer' do
+      let(:source) do
+        <<-CASK.undent
+          cask 'foo' do
+            url 'https://foo.example.com/foo.zip',
+                referrer: 'https://example.com/foo/'
+            homepage 'https://foo.example.com'
+          end
+        CASK
+      end
+
+      include_examples 'does not report any offenses'
+    end
+
     context 'but there is a comment' do
       let(:source) do
         <<-CASK.undent
