@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'public_suffix', '~> 2.0'
-
 group :development do
   gem 'pry'
   gem 'pry-byebug', platforms: :mri
