@@ -1,4 +1,5 @@
 require 'forwardable'
+require 'public_suffix'
 
 module RuboCop
   module Cop
@@ -14,7 +15,7 @@ module RuboCop
         MSG_NO_MATCH = '`%s` does not match `%s`'.freeze
 
         MSG_MISSING = '`%s` does not match `%s`, a comment in the form of ' \
-                      '`# example.com was verified as official when first ' \
+                      '`# %s was verified as official when first ' \
                       'introduced to the cask` has to be added above the ' \
                       '`url` stanza'.freeze
 
@@ -35,7 +36,7 @@ module RuboCop
         def add_offenses
           toplevel_stanzas.select(&:url?).each do |url|
             if url_match_homepage?(url)
-              next unless comment?(url)
+              next unless comment?(url) && comment_matches_url?(url)
               add_offense_unnecessary_comment(url)
             elsif !comment?(url)
               add_offense_missing_comment(url)
@@ -47,21 +48,22 @@ module RuboCop
 
         def add_offense_missing_comment(stanza)
           range = stanza.source_range
-          add_offense(range, range, format(MSG_MISSING, url(stanza), homepage))
+          url_domain = domain(stanza)
+          add_offense(range, range, format(MSG_MISSING, url_domain, homepage, url_domain))
         end
 
         def add_offense_unnecessary_comment(stanza)
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       comment,
-                      format(MSG_UNNECESSARY, url(stanza), homepage))
+                      format(MSG_UNNECESSARY, domain(stanza), homepage))
         end
 
         def add_offense_no_match(stanza)
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       comment,
-                      format(MSG_NO_MATCH, url_from_comment(stanza), url(stanza)))
+                      format(MSG_NO_MATCH, url_from_comment(stanza), full_url(stanza)))
         end
 
         def comment?(stanza)
@@ -78,33 +80,33 @@ module RuboCop
         end
 
         def comment_matches_url?(stanza)
-          url(stanza).include?(url_from_comment(stanza))
+          full_url(stanza).include?(url_from_comment(stanza))
         end
 
-        def strip_http(url)
-          url.sub(%r{^.*://(?=www\.)?}, '')
+        def strip_url_scheme(url)
+          url.sub(%r{^.*://(www\.)?}, '')
         end
 
-        def extract_stanza(stanza)
-          stanza.source
-            .sub(/#{stanza.stanza_name} \'(.*)\'/, '\1')
-            .sub(/#{stanza.stanza_name} \"(.*)\"/, '\1')
+        def domain(stanza)
+          strip_url_scheme(extract_url(stanza)).gsub(%r{^([^/]+).*}, '\1')
         end
 
-        def domain(url)
-          strip_http(url).gsub(%r{^([^/]+).*}, '\1')
+        def extract_url(stanza)
+          string = stanza.stanza_node.children[2]
+          return string.str_content if string.str_type?
+          string.to_s.gsub(%r{.*"([a-z0-9]+\:\/\/[^"]+)".*}m, '\1')
         end
 
-        def url_match_homepage?(url)
-          url(url).include?(homepage)
+        def url_match_homepage?(stanza)
+          PublicSuffix.domain(domain(stanza)) == homepage
         end
 
-        def url(stanza)
-          domain(extract_stanza(stanza))
+        def full_url(stanza)
+          strip_url_scheme(extract_url(stanza))
         end
 
         def homepage
-          url(toplevel_stanzas.find(&:homepage?))
+          PublicSuffix.domain(domain(toplevel_stanzas.find(&:homepage?)))
         end
       end
     end
