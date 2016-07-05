@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.8.1](https://github.com/caskroom/rubocop-cask/tree/v0.8.1) (2016-07-05)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.8.0...v0.8.1)
+
+**Merged pull requests:**
+
+- Fix comment with url with slashes not matching. [\#26](https://github.com/caskroom/rubocop-cask/pull/26) ([reitermarkus](https://github.com/reitermarkus))
+
 ## [v0.8.0](https://github.com/caskroom/rubocop-cask/tree/v0.8.0) (2016-07-03)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.7.0...v0.8.0)
 
