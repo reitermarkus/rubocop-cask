@@ -14,10 +14,9 @@ module RuboCop
 
         MSG_NO_MATCH = '`%s` does not match `%s`'.freeze
 
-        MSG_MISSING = '`%s` does not match `%s`, a comment in the form of ' \
-                      '`# %s was verified as official when first ' \
-                      'introduced to the cask` has to be added above the ' \
-                      '`url` stanza'.freeze
+        MSG_MISSING = '`%s` does not match `%s`, a comment has to be added ' \
+                      'above the `url` stanza. For details, see ' \
+                      'https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment'.freeze
 
         MSG_UNNECESSARY = '`%s` matches `%s`, the comment above the `url` ' \
                           'stanza is unnecessary'.freeze

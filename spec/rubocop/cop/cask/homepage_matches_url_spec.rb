@@ -2,12 +2,6 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
   include CopSharedExamples
 
   subject(:cop) { described_class.new }
-  let(:missing_line_msg) do
-    'stanza groups should be separated by a single empty line'
-  end
-  let(:extra_line_msg) do
-    'stanzas within the same group should have no lines between them'
-  end
 
   context 'when the url matches the homepage' do
     context 'and there is no comment' do
@@ -164,10 +158,9 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
       end
       let(:expected_offenses) do
         [{
-          message: '`example.com` does not match `example.org`, a ' \
-                   'comment in the form of `# example.com was verified as ' \
-                   'official when first introduced to the cask` has to be ' \
-                   'added above the `url` stanza',
+          message: '`example.com` does not match `example.org`, a comment ' \
+                   'has to be added above the `url` stanza. For details, see ' \
+                   'https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment',
           severity: :convention,
           line: 2,
           column: 2,
