@@ -1,5 +1,22 @@
 # Change Log
 
+## [v0.8.3](https://github.com/caskroom/rubocop-cask/tree/v0.8.3) (2016-07-16)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.8.2...v0.8.3)
+
+**Implemented enhancements:**
+
+- Don’t suggest “a comment in the form of” when homepage and url differ [\#28](https://github.com/caskroom/rubocop-cask/issues/28)
+- Cop: check for comment when url and homepage hostnames differ [\#4](https://github.com/caskroom/rubocop-cask/issues/4)
+- Link to url comment rules, don't show example [\#29](https://github.com/caskroom/rubocop-cask/pull/29) ([jawshooah](https://github.com/jawshooah))
+
+**Closed issues:**
+
+- `brew cask style --fix` fails with frozen String [\#27](https://github.com/caskroom/rubocop-cask/issues/27)
+- Rubocop-cask has dependency conflicts [\#18](https://github.com/caskroom/rubocop-cask/issues/18)
+
+## [v0.8.2](https://github.com/caskroom/rubocop-cask/tree/v0.8.2) (2016-07-05)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.8.1...v0.8.2)
+
 ## [v0.8.1](https://github.com/caskroom/rubocop-cask/tree/v0.8.1) (2016-07-05)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.8.0...v0.8.1)
 
