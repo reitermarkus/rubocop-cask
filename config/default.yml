@@ -22,6 +22,11 @@ Cask/StanzaOrder:
   Description: 'Ensure that cask stanzas are sorted correctly. More info at https://github.com/caskroom/homebrew-cask/blob/master/CONTRIBUTING.md#stanza-order'
   Enabled: true
 
+Cask/SystemCommand:
+  Description: 'Ensure that cask stanzas use `system_command` instead of `system`.'
+  Enabled: true
+
+
 ###
 ### RuboCop cops
 ###
