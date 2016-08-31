@@ -93,6 +93,31 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
   context 'when the url does not match the homepage' do
     context 'and there is a comment' do
       context 'which matches the url' do
+        context 'but does not match the expected format' do
+          let(:source) do
+            <<-CASK.undent
+              cask 'foo' do
+                # example.com was verified as official
+                url 'https://example.com/foo.zip'
+                homepage 'https://foo.example.org'
+              end
+            CASK
+          end
+          let(:expected_offenses) do
+            [{
+              message: '`# example.com was verified as official` does not ' \
+                       'match the expected comment format. For details, see ' \
+                      'https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment',
+              severity: :convention,
+              line: 2,
+              column: 2,
+              source: '# example.com was verified as official'
+            }]
+          end
+
+          include_examples 'reports offenses'
+        end
+
         context 'and does not have slashes' do
           let(:source) do
             <<-CASK.undent
