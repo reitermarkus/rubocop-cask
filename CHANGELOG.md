@@ -1,6 +1,18 @@
 # Change Log
 
-## [v0.8.3](https://github.com/caskroom/rubocop-cask/tree/v0.8.3) (2016-07-16)
+## [v0.9.0](https://github.com/caskroom/rubocop-cask/tree/v0.9.0) (2016-09-18)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.8.3...v0.9.0)
+
+**Closed issues:**
+
+- Support same Rubocop as Homebrew [\#33](https://github.com/caskroom/rubocop-cask/issues/33)
+- Refactor lib/rubocop/cop/cask/homepage\_matches\_url.rb from an A on Code Climate [\#31](https://github.com/caskroom/rubocop-cask/issues/31)
+
+**Merged pull requests:**
+
+- Update `rubocop` dependency to 0.42.0. [\#30](https://github.com/caskroom/rubocop-cask/pull/30) ([reitermarkus](https://github.com/reitermarkus))
+
+## [v0.8.3](https://github.com/caskroom/rubocop-cask/tree/v0.8.3) (2016-07-17)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.8.2...v0.8.3)
 
 **Implemented enhancements:**
