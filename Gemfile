@@ -15,6 +15,7 @@ group :test do
   gem 'simplecov', '~> 0.11', require: false
   gem 'travis', '~> 1.8', require: false
   gem 'codeclimate-test-reporter', require: false
+  gem 'net-http-persistent', '~> 2.7' # prevent errors for Ruby < 2.1
 end
 
 group :release do
