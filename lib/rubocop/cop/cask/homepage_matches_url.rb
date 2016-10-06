@@ -12,11 +12,17 @@ module RuboCop
         extend Forwardable
         include CaskHelp
 
+        REFERENCE_URL = 'https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment'.freeze
+
+        COMMENT_FORMAT = /# [^ ]+ was verified as official when first introduced to the cask/
+
         MSG_NO_MATCH = '`%s` does not match `%s`'.freeze
 
         MSG_MISSING = '`%s` does not match `%s`, a comment has to be added ' \
-                      'above the `url` stanza. For details, see ' \
-                      'https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment'.freeze
+                      'above the `url` stanza. For details, see ' + REFERENCE_URL
+
+        MSG_WRONG_FORMAT = '`%s` does not match the expected comment format. ' \
+                           'For details, see ' + REFERENCE_URL
 
         MSG_UNNECESSARY = '`%s` matches `%s`, the comment above the `url` ' \
                           'stanza is unnecessary'.freeze
@@ -34,35 +40,53 @@ module RuboCop
 
         def add_offenses
           toplevel_stanzas.select(&:url?).each do |url|
-            if url_match_homepage?(url)
-              next unless comment?(url) && comment_matches_url?(url)
-              add_offense_unnecessary_comment(url)
-            elsif !comment?(url)
-              add_offense_missing_comment(url)
-            elsif !comment_matches_url?(url)
-              add_offense_no_match(url)
-            end
+            next if add_offense_unnecessary_comment(url)
+            next if add_offense_missing_comment(url)
+            next if add_offense_no_match(url)
+            next if add_offense_wrong_format(url)
           end
         end
 
-        def add_offense_missing_comment(stanza)
-          range = stanza.source_range
-          url_domain = domain(stanza)
-          add_offense(range, range, format(MSG_MISSING, url_domain, homepage, url_domain))
-        end
-
         def add_offense_unnecessary_comment(stanza)
+          return unless comment?(stanza)
+          return unless url_match_homepage?(stanza)
+          return unless comment_matches_url?(stanza)
+
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       comment,
                       format(MSG_UNNECESSARY, domain(stanza), homepage))
         end
 
+        def add_offense_missing_comment(stanza)
+          return if url_match_homepage?(stanza)
+          return if !url_match_homepage?(stanza) && comment?(stanza)
+
+          range = stanza.source_range
+          url_domain = domain(stanza)
+          add_offense(range, range, format(MSG_MISSING, url_domain, homepage, url_domain))
+        end
+
         def add_offense_no_match(stanza)
+          return if url_match_homepage?(stanza)
+          return unless comment?(stanza)
+          return if !url_match_homepage?(stanza) && comment_matches_url?(stanza)
+
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       comment,
                       format(MSG_NO_MATCH, url_from_comment(stanza), full_url(stanza)))
+        end
+
+        def add_offense_wrong_format(stanza)
+          return if url_match_homepage?(stanza)
+          return unless comment?(stanza)
+          return if comment_matches_format?(stanza)
+
+          comment = comment(stanza).loc.expression
+          add_offense(comment,
+                      comment,
+                      format(MSG_WRONG_FORMAT, comment(stanza).text))
         end
 
         def comment?(stanza)
@@ -73,9 +97,13 @@ module RuboCop
           stanza.comments.last
         end
 
+        def comment_matches_format?(stanza)
+          comment(stanza).text =~ COMMENT_FORMAT
+        end
+
         def url_from_comment(stanza)
           comment(stanza).text
-            .sub(/.*# ([^ ]*) was verified as official when first introduced to the cask$/, '\1')
+            .sub(/[^ ]*# ([^ ]+) .*/, '\1')
         end
 
         def comment_matches_url?(stanza)
