@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.10.1](https://github.com/caskroom/rubocop-cask/tree/v0.10.1) (2016-10-06)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.10.0...v0.10.1)
+
+**Merged pull requests:**
+
+- Fix Travis builds for Ruby 2.0-2.2 [\#36](https://github.com/caskroom/rubocop-cask/pull/36) ([jawshooah](https://github.com/jawshooah))
+- Add an offense when the URL in the comment matches, but the format doesn’t. [\#32](https://github.com/caskroom/rubocop-cask/pull/32) ([reitermarkus](https://github.com/reitermarkus))
+
 ## [v0.10.0](https://github.com/caskroom/rubocop-cask/tree/v0.10.0) (2016-09-28)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.9.0...v0.10.0)
 
