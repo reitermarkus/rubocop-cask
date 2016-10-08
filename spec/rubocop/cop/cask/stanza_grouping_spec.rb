@@ -78,7 +78,6 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
           name 'Foo'
 
           homepage 'https://foo.example.com'
-          license :mit
 
           app 'Foo.app'
           uninstall :quit => 'com.example.foo',
@@ -95,7 +94,6 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
           url 'https://foo.example.com/foo.zip'
           name 'Foo'
           homepage 'https://foo.example.com'
-          license :mit
 
           app 'Foo.app'
 
@@ -126,7 +124,7 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
       }, {
         message: missing_line_msg,
         severity: :convention,
-        line: 12,
+        line: 11,
         column: 0,
         source: "  uninstall :quit => 'com.example.foo',"
       }]
