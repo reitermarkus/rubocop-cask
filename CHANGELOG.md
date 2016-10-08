@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.10.2](https://github.com/caskroom/rubocop-cask/tree/v0.10.2) (2016-10-08)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.10.1...v0.10.2)
+
+**Merged pull requests:**
+
+- constants,stanza\_grouping\_spec: remove license stanza [\#37](https://github.com/caskroom/rubocop-cask/pull/37) ([vitorgalvao](https://github.com/vitorgalvao))
+
 ## [v0.10.1](https://github.com/caskroom/rubocop-cask/tree/v0.10.1) (2016-10-06)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.10.0...v0.10.1)
 
