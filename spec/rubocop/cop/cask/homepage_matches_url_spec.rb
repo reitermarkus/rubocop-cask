@@ -196,4 +196,16 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
       include_examples 'reports offenses'
     end
   end
+
+  context 'when there is no homepage' do
+    let(:source) do
+      <<-CASK.undent
+        cask 'foo' do
+          url 'https://example.com/foo.zip'
+        end
+      CASK
+    end
+
+    include_examples 'does not report any offenses'
+  end
 end
