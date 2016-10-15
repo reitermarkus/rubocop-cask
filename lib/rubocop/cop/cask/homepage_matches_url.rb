@@ -8,7 +8,7 @@ module RuboCop
       # or if it doesn't, checks if a comment in the form
       # `# example.com was verified as official when first introduced to the cask`
       # is present.
-      class HomepageMatchesUrl < Cop
+      class HomepageMatchesUrl < Cop # rubocop:disable Metrics/ClassLength
         extend Forwardable
         include CaskHelp
 
@@ -29,6 +29,7 @@ module RuboCop
 
         def on_cask(cask_block)
           @cask_block = cask_block
+          return unless homepage_stanza
           add_offenses
         end
 
@@ -133,7 +134,11 @@ module RuboCop
         end
 
         def homepage
-          PublicSuffix.domain(domain(toplevel_stanzas.find(&:homepage?)))
+          PublicSuffix.domain(domain(homepage_stanza))
+        end
+
+        def homepage_stanza
+          toplevel_stanzas.find(&:homepage?)
         end
       end
     end
