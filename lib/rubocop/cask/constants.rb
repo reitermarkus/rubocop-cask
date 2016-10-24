@@ -21,6 +21,7 @@ module RuboCop
           :installer,
           :binary,
           :colorpicker,
+          :dictionary,
           :font,
           :input_method,
           :internet_plugin,
