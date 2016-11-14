@@ -1,5 +1,20 @@
 # Change Log
 
+## [v0.10.5](https://github.com/caskroom/rubocop-cask/tree/v0.10.5) (2016-11-14)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.10.4...v0.10.5)
+
+**Closed issues:**
+
+- x-moto is failing style [\#42](https://github.com/caskroom/rubocop-cask/issues/42)
+
+**Merged pull requests:**
+
+- Update to RuboCop 0.45.0 and bump version to 0.10.5. [\#43](https://github.com/caskroom/rubocop-cask/pull/43) ([reitermarkus](https://github.com/reitermarkus))
+- constants.rb: add dictionary [\#41](https://github.com/caskroom/rubocop-cask/pull/41) ([vitorgalvao](https://github.com/vitorgalvao))
+
+## [v0.10.4](https://github.com/caskroom/rubocop-cask/tree/v0.10.4) (2016-10-17)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.10.3...v0.10.4)
+
 ## [v0.10.3](https://github.com/caskroom/rubocop-cask/tree/v0.10.3) (2016-10-16)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.10.2...v0.10.3)
 
