@@ -20,7 +20,10 @@ end
 
 group :release do
   gem 'github_changelog_generator', require: false
-  gem 'rack', '~> 1.6' # prevent errors for Ruby < 2.2.2
+
+  # prevent errors for Ruby < 2.2.2
+  gem 'activesupport', '~> 4.2.7.1', require: false
+  gem 'rack', '~> 1.6', require: false
 end
 
 local_gemfile = 'Gemfile.local'
