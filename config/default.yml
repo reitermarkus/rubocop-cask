@@ -22,6 +22,9 @@ Cask/StanzaOrder:
 ### RuboCop cops
 ###
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/LineLength:
   Enabled: false
 
