@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.10.6](https://github.com/caskroom/rubocop-cask/tree/v0.10.6) (2016-11-15)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.10.5...v0.10.6)
+
+**Closed issues:**
+
+- `block\_length` cop is making `rubocop` fail [\#44](https://github.com/caskroom/rubocop-cask/issues/44)
+
 ## [v0.10.5](https://github.com/caskroom/rubocop-cask/tree/v0.10.5) (2016-11-14)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.10.4...v0.10.5)
 
