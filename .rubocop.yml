@@ -8,6 +8,10 @@ Metrics/AbcSize:
   Exclude:
     - spec/**/*
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
 Metrics/LineLength:
   Exclude:
     - lib/rubocop/cop/cask/homepage_matches_url.rb
