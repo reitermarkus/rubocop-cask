@@ -6,6 +6,10 @@ Cask/NoDslVersion:
   Description: 'Do not use the deprecated DSL version syntax in your cask header.'
   Enabled: true
 
+Cask/HomepageUrlTrailingSlash:
+  Description: 'Ensure that the homepage url has a slash after the domain name.'
+  Enabled: true
+
 Cask/HomepageMatchesUrl:
   Description: 'Ensure that the homepage and url match, otherwise add a comment. More info at https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment'
   Enabled: true
