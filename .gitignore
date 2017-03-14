@@ -1,4 +1,4 @@
-Gemfile.local
+.bundle
 Gemfile.lock
 coverage/
 pkg/
