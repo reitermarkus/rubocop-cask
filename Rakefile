@@ -38,7 +38,7 @@ namespace :changelog do
 
   GitHubChangelogGenerator::RakeTask.new(:latest_release) do |config|
     require 'rubocop/cask/version'
-    configure_changelog(config, release: RuboCop::Cask::Version::STRING)
+    configure_changelog(config, release: RuboCop::Cask::VERSION)
   end
 end
 

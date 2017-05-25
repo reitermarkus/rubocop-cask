@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.email = ['hagins.josh@gmail.com']
   s.license = 'MIT'
 
-  s.version = RuboCop::Cask::Version::STRING
+  s.version = RuboCop::Cask::VERSION
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = '>= 2.0.0'
 

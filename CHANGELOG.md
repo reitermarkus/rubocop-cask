@@ -1,5 +1,17 @@
 # Change Log
 
+## [v0.13.0](https://github.com/caskroom/rubocop-cask/tree/v0.13.0) (2017-05-26)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.12.0...v0.13.0)
+
+**Closed issues:**
+
+- Fix "Rubocop/Style/PercentLiteralDelimiters" issue in Rakefile [\#51](https://github.com/caskroom/rubocop-cask/issues/51)
+- Fix "Rubocop/Style/PercentLiteralDelimiters" issue in Rakefile [\#50](https://github.com/caskroom/rubocop-cask/issues/50)
+
+**Merged pull requests:**
+
+- Update RuboCop to 0.49. [\#49](https://github.com/caskroom/rubocop-cask/pull/49) ([reitermarkus](https://github.com/reitermarkus))
+
 ## [v0.12.0](https://github.com/caskroom/rubocop-cask/tree/v0.12.0) (2017-03-14)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.11.0...v0.12.0)
 
