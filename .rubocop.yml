@@ -4,6 +4,12 @@ AllCops:
   Exclude:
     - vendor/**/*
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
 Metrics/AbcSize:
   Exclude:
     - spec/**/*
@@ -30,8 +36,5 @@ Style/FileName:
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
 
-Style/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Style/MultilineOperationIndentation:
-  EnforcedStyle: indented
+Style/SymbolArray:
+  EnforcedStyle: brackets

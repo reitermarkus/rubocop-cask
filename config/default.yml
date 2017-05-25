@@ -1,5 +1,5 @@
 ###
-### RuboCop Cask cops
+### RuboCop-Cask Cops
 ###
 
 Cask/NoDslVersion:
@@ -23,8 +23,18 @@ Cask/StanzaOrder:
   Enabled: true
 
 ###
-### RuboCop cops
+### RuboCop Cops
 ###
+
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Layout/IndentArray:
+  EnforcedStyle: align_brackets
+
+Layout/IndentHash:
+  EnforcedStyle: align_braces
 
 Metrics/BlockLength:
   Enabled: false
@@ -34,10 +44,6 @@ Metrics/LineLength:
 
 Performance/StringReplacement:
   Enabled: false
-
-Style/AlignHash:
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
 
 Style/BarePercentLiterals:
   EnforcedStyle: percent_q
@@ -53,12 +59,6 @@ Style/FileName:
 
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
-
-Style/IndentArray:
-  EnforcedStyle: align_brackets
-
-Style/IndentHash:
-  EnforcedStyle: align_braces
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:

@@ -28,7 +28,7 @@ namespace :changelog do
   def configure_changelog(config, release: nil)
     config.user = 'caskroom'
     config.project = 'rubocop-cask'
-    config.exclude_labels = %w(discussion duplicate invalid question wontfix)
+    config.exclude_labels = %w[discussion duplicate invalid question wontfix]
     config.future_release = "v#{release}" if release
   end
 
