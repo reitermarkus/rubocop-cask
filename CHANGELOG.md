@@ -1,6 +1,13 @@
 # Change Log
 
-## [v0.13.0](https://github.com/caskroom/rubocop-cask/tree/v0.13.0) (2017-05-26)
+## [v0.13.1](https://github.com/caskroom/rubocop-cask/tree/v0.13.1) (2017-07-05)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.13.0...v0.13.1)
+
+**Merged pull requests:**
+
+- Don’t enforce symbol and word arrays. [\#53](https://github.com/caskroom/rubocop-cask/pull/53) ([reitermarkus](https://github.com/reitermarkus))
+
+## [v0.13.0](https://github.com/caskroom/rubocop-cask/tree/v0.13.0) (2017-05-25)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.12.0...v0.13.0)
 
 **Closed issues:**
