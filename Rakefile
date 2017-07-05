@@ -25,6 +25,8 @@ task :repl do
 end
 
 namespace :changelog do
+  ENV['CHANGELOG_GITHUB_TOKEN'] ||= ENV['HOMEBREW_GITHUB_API_TOKEN']
+
   def configure_changelog(config, release: nil)
     config.user = 'caskroom'
     config.project = 'rubocop-cask'
