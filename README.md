@@ -74,6 +74,17 @@ Cask/NoDslVersion:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+
+## Maintaining
+
+To publish a new release:
+
+  1. update the version in `lib/rubocop/cask/version.rb`
+  2. run `bundle exec rake build` to run tests and generate the changelog
+  3. commit the changes
+  4. run `bundle exec rake release`
+
+
 ## License
 
 `rubocop-cask` is MIT licensed. [See the accompanying file](MIT-LICENSE.md) for
