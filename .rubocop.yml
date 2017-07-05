@@ -22,13 +22,6 @@ Metrics/LineLength:
   Exclude:
     - lib/rubocop/cop/cask/homepage_matches_url.rb
 
-# RSpec/DescribeClass:
-#   Exclude:
-#     - spec/project_spec.rb
-
-# RSpec/VerifiedDoubles:
-#   Enabled: true
-
 Style/FileName:
   Exclude:
     - lib/rubocop-cask.rb
