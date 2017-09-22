@@ -54,7 +54,7 @@ Style/Documentation:
 Style/EmptyElse:
   Enabled: false
 
-Style/FileName:
+Naming/FileName:
   Enabled: false
 
 Style/HashSyntax:
