@@ -22,7 +22,7 @@ Metrics/LineLength:
   Exclude:
     - lib/rubocop/cop/cask/homepage_matches_url.rb
 
-Style/FileName:
+Naming/FileName:
   Exclude:
     - lib/rubocop-cask.rb
 

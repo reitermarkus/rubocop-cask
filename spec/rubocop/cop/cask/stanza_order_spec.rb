@@ -154,7 +154,7 @@ describe RuboCop::Cop::Cask::StanzaOrder do
     end
 
     it 'preserves the original order' do
-      expect_autocorrected_source(cop, source, correct_source)
+      expect_autocorrected_source(source, correct_source)
     end
   end
 

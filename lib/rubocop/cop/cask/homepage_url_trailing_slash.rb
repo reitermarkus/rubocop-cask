@@ -12,7 +12,7 @@ module RuboCop
         MSG_NO_SLASH = "'%s' must have a slash after the domain.".freeze
 
         def on_homepage_stanza(stanza)
-          url_node = stanza.stanza_node.method_args.first
+          url_node = stanza.stanza_node.first_argument
           url = url_node.str_content
 
           return if url !~ %r{^.+://[^/]+$}
