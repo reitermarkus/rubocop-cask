@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.version = RuboCop::Cask::VERSION
   s.platform = Gem::Platform::RUBY
-  s.required_ruby_version = '>= 2.0.0'
+  s.required_ruby_version = '>= 2.1'
 
   s.require_paths = ['lib']
   s.files = Dir[
@@ -25,8 +25,8 @@ Gem::Specification.new do |s|
   s.test_files = Dir['spec/**/*.rb']
   s.extra_rdoc_files = ['MIT-LICENSE.md', 'README.md']
 
-  s.add_dependency 'public_suffix', '~> 2.0'
+  s.add_dependency 'public_suffix', '~> 3.0'
   s.add_dependency 'rubocop', '~> 0.50.0'
 
-  s.add_development_dependency 'bundler', '~> 1.14'
+  s.add_development_dependency 'bundler', '~> 1.15'
 end
