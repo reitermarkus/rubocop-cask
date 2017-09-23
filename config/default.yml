@@ -57,6 +57,10 @@ Style/EmptyElse:
 Naming/FileName:
   Enabled: false
 
+Naming/HeredocDelimiterNaming:
+  Blacklist:
+    - END, EOD, EOF
+
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
 
