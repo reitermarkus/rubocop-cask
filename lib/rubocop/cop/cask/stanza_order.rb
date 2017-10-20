@@ -35,7 +35,8 @@ module RuboCop
         def add_offenses
           offending_stanzas.each do |stanza|
             message = format(MESSAGE, stanza.stanza_name)
-            add_offense(stanza, stanza.source_range_with_comments, message)
+            add_offense(stanza, location: stanza.source_range_with_comments,
+                                message: message)
           end
         end
 

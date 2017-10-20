@@ -55,8 +55,8 @@ module RuboCop
 
           comment = comment(stanza).loc.expression
           add_offense(comment,
-                      comment,
-                      format(MSG_UNNECESSARY, domain(stanza), homepage))
+                      location: comment,
+                      message: format(MSG_UNNECESSARY, domain(stanza), homepage))
         end
 
         def add_offense_missing_comment(stanza)
@@ -65,7 +65,7 @@ module RuboCop
 
           range = stanza.source_range
           url_domain = domain(stanza)
-          add_offense(range, range, format(MSG_MISSING, url_domain, homepage, url_domain))
+          add_offense(range, location: range, message: format(MSG_MISSING, url_domain, homepage, url_domain))
         end
 
         def add_offense_no_match(stanza)
@@ -75,8 +75,8 @@ module RuboCop
 
           comment = comment(stanza).loc.expression
           add_offense(comment,
-                      comment,
-                      format(MSG_NO_MATCH, url_from_comment(stanza), full_url(stanza)))
+                      location: comment,
+                      message: format(MSG_NO_MATCH, url_from_comment(stanza), full_url(stanza)))
         end
 
         def add_offense_wrong_format(stanza)
@@ -86,8 +86,8 @@ module RuboCop
 
           comment = comment(stanza).loc.expression
           add_offense(comment,
-                      comment,
-                      format(MSG_WRONG_FORMAT, comment(stanza).text))
+                      location: comment,
+                      message: format(MSG_WRONG_FORMAT, comment(stanza).text))
         end
 
         def comment?(stanza)

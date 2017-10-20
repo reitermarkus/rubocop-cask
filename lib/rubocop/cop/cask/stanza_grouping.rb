@@ -74,20 +74,20 @@ module RuboCop
         def add_offense_missing_line(stanza)
           line_index = index_of_line_after(stanza)
           line_ops[line_index] = :insert
-          add_offense(line_index, MISSING_LINE_MSG)
+          add_offense(line_index, message: MISSING_LINE_MSG)
         end
 
         def add_offense_extra_line(stanza)
           line_index = index_of_line_after(stanza)
           line_ops[line_index] = :remove
-          add_offense(line_index, EXTRA_LINE_MSG)
+          add_offense(line_index, message: EXTRA_LINE_MSG)
         end
 
-        def add_offense(line_index, msg)
+        def add_offense(line_index, message:)
           line_length = [processed_source[line_index].size, 1].max
           range = source_range(processed_source.buffer, line_index + 1, 0,
                                line_length)
-          super(range, range, msg)
+          super(range, location: range, message: message)
         end
       end
     end

@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('lib', __dir__)
 require 'rubocop/cask/version'
 
 Gem::Specification.new do |s|
@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['MIT-LICENSE.md', 'README.md']
 
   s.add_dependency 'public_suffix', '~> 3.0'
-  s.add_dependency 'rubocop', '~> 0.50.0'
+  s.add_dependency 'rubocop', '~> 0.51.0'
 
   s.add_development_dependency 'bundler', '~> 1.15'
 end
