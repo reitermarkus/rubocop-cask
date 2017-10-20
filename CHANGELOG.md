@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.14.3](https://github.com/caskroom/rubocop-cask/tree/v0.14.3) (2017-10-20)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.14.2...v0.14.3)
+
+**Merged pull requests:**
+
+- Update target Ruby version to 2.3. [\#56](https://github.com/caskroom/rubocop-cask/pull/56) ([reitermarkus](https://github.com/reitermarkus))
+
 ## [v0.14.2](https://github.com/caskroom/rubocop-cask/tree/v0.14.2) (2017-09-23)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.13.4...v0.14.2)
 
