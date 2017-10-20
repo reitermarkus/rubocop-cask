@@ -1,20 +1,18 @@
 AllCops:
   TargetRubyVersion: 2.3
 
-###
-### RuboCop-Cask Cops
-###
+# Cask Cops
 
-Cask/NoDslVersion:
-  Description: 'Do not use the deprecated DSL version syntax in your cask header.'
+Cask/HomepageMatchesUrl:
+  Description: 'Ensure that the homepage and url match, otherwise add a comment. More info at https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment'
   Enabled: true
 
 Cask/HomepageUrlTrailingSlash:
   Description: 'Ensure that the homepage url has a slash after the domain name.'
   Enabled: true
 
-Cask/HomepageMatchesUrl:
-  Description: 'Ensure that the homepage and url match, otherwise add a comment. More info at https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment'
+Cask/NoDslVersion:
+  Description: 'Do not use the deprecated DSL version syntax in your cask header.'
   Enabled: true
 
 Cask/StanzaGrouping:
@@ -25,9 +23,7 @@ Cask/StanzaOrder:
   Description: 'Ensure that cask stanzas are sorted correctly. More info at https://github.com/caskroom/homebrew-cask/blob/master/CONTRIBUTING.md#stanza-order'
   Enabled: true
 
-###
-### RuboCop Cops
-###
+# Built-In Cops
 
 Layout/AlignHash:
   EnforcedHashRocketStyle: table
@@ -45,6 +41,13 @@ Metrics/BlockLength:
 Metrics/LineLength:
   Enabled: false
 
+Naming/FileName:
+  Enabled: false
+
+Naming/HeredocDelimiterNaming:
+  Blacklist:
+    - END, EOD, EOF
+
 Performance/StringReplacement:
   Enabled: false
 
@@ -59,13 +62,6 @@ Style/EmptyElse:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
-
-Naming/FileName:
-  Enabled: false
-
-Naming/HeredocDelimiterNaming:
-  Blacklist:
-    - END, EOD, EOF
 
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
@@ -85,11 +81,11 @@ Style/PercentLiteralDelimiters:
 Style/RegexpLiteral:
   EnforcedStyle: percent_r
 
-Style/TrailingCommaInLiteral:
-  EnforcedStyleForMultiline: comma
-
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
 
 Style/WordArray:
   EnforcedStyle: brackets
