@@ -57,6 +57,9 @@ Style/Documentation:
 Style/EmptyElse:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Naming/FileName:
   Enabled: false
 
