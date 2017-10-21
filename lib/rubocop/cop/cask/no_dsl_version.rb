@@ -48,7 +48,8 @@ module RuboCop
         end
 
         def offense
-          add_offense(@cask_header.method_node, header_range, error_msg)
+          add_offense(@cask_header.method_node, location: header_range,
+                                                message: error_msg)
         end
 
         def error_msg
