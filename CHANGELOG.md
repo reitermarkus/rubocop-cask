@@ -1,5 +1,15 @@
 # Change Log
 
+## [v0.15.0](https://github.com/caskroom/rubocop-cask/tree/v0.15.0) (2017-10-23)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.14.4...v0.15.0)
+
+**Merged pull requests:**
+
+- Update RuboCop dependency to 0.51. [\#57](https://github.com/caskroom/rubocop-cask/pull/57) ([reitermarkus](https://github.com/reitermarkus))
+
+## [v0.14.4](https://github.com/caskroom/rubocop-cask/tree/v0.14.4) (2017-10-20)
+[Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.14.3...v0.14.4)
+
 ## [v0.14.3](https://github.com/caskroom/rubocop-cask/tree/v0.14.3) (2017-10-20)
 [Full Changelog](https://github.com/caskroom/rubocop-cask/compare/v0.14.2...v0.14.3)
 
