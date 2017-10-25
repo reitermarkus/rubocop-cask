@@ -1,10 +1,5 @@
 require 'rubocop'
 
-RuboCop::ConfigLoader.default_configuration =
-  RuboCop::ConfigLoader.configuration_from_file(
-    File.expand_path('../config/default.yml', __dir__)
-  )
-
 require 'rubocop/cask/constants'
 require 'rubocop/cask/extend/string'
 require 'rubocop/cask/extend/node'
@@ -19,3 +14,8 @@ require 'rubocop/cop/cask/homepage_url_trailing_slash'
 require 'rubocop/cop/cask/no_dsl_version'
 require 'rubocop/cop/cask/stanza_order'
 require 'rubocop/cop/cask/stanza_grouping'
+
+RuboCop::ConfigLoader.default_configuration =
+  RuboCop::ConfigLoader.configuration_from_file(
+    File.expand_path('../config/default.yml', __dir__)
+  )
