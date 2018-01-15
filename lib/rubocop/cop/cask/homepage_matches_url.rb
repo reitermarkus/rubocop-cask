@@ -16,15 +16,15 @@ module RuboCop
 
         COMMENT_FORMAT = /# [^ ]+ was verified as official when first introduced to the cask/
 
-        MSG_NO_MATCH = '`%s` does not match `%s`'.freeze
+        MSG_NO_MATCH = '`%<url>s` does not match `%<full_url>s`'.freeze
 
-        MSG_MISSING = '`%s` does not match `%s`, a comment has to be added ' \
+        MSG_MISSING = '`%<domain>s` does not match `%<homepage>s`, a comment has to be added ' \
                       'above the `url` stanza. For details, see ' + REFERENCE_URL
 
-        MSG_WRONG_FORMAT = '`%s` does not match the expected comment format. ' \
+        MSG_WRONG_FORMAT = '`%<comment>s` does not match the expected comment format. ' \
                            'For details, see ' + REFERENCE_URL
 
-        MSG_UNNECESSARY = '`%s` matches `%s`, the comment above the `url` ' \
+        MSG_UNNECESSARY = '`%<domain>s` matches `%<homepage>s`, the comment above the `url` ' \
                           'stanza is unnecessary'.freeze
 
         def on_cask(cask_block)
@@ -56,7 +56,7 @@ module RuboCop
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       location: comment,
-                      message: format(MSG_UNNECESSARY, domain(stanza), homepage))
+                      message: format(MSG_UNNECESSARY, domain: domain(stanza), homepage: homepage))
         end
 
         def add_offense_missing_comment(stanza)
@@ -65,7 +65,7 @@ module RuboCop
 
           range = stanza.source_range
           url_domain = domain(stanza)
-          add_offense(range, location: range, message: format(MSG_MISSING, url_domain, homepage, url_domain))
+          add_offense(range, location: range, message: format(MSG_MISSING, domain: url_domain, homepage: homepage))
         end
 
         def add_offense_no_match(stanza)
@@ -76,7 +76,7 @@ module RuboCop
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       location: comment,
-                      message: format(MSG_NO_MATCH, url_from_comment(stanza), full_url(stanza)))
+                      message: format(MSG_NO_MATCH, url: url_from_comment(stanza), full_url: full_url(stanza)))
         end
 
         def add_offense_wrong_format(stanza)
@@ -87,7 +87,7 @@ module RuboCop
           comment = comment(stanza).loc.expression
           add_offense(comment,
                       location: comment,
-                      message: format(MSG_WRONG_FORMAT, comment(stanza).text))
+                      message: format(MSG_WRONG_FORMAT, comment: comment(stanza).text))
         end
 
         def comment?(stanza)

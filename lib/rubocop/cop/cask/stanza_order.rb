@@ -10,7 +10,7 @@ module RuboCop
         extend Forwardable
         include CaskHelp
 
-        MESSAGE = '`%s` stanza out of order'.freeze
+        MESSAGE = '`%<stanza>s` stanza out of order'.freeze
 
         def on_cask(cask_block)
           @cask_block = cask_block
@@ -34,7 +34,7 @@ module RuboCop
 
         def add_offenses
           offending_stanzas.each do |stanza|
-            message = format(MESSAGE, stanza.stanza_name)
+            message = format(MESSAGE, stanza: stanza.stanza_name)
             add_offense(stanza, location: stanza.source_range_with_comments,
                                 message: message)
           end

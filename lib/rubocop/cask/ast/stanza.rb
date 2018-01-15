@@ -54,7 +54,7 @@ module RuboCop
         alias eql? ==
 
         Constants::STANZA_ORDER.each do |stanza_name|
-          class_eval <<-RUBY, __FILE__, __LINE__
+          class_eval <<-RUBY, __FILE__, __LINE__ + 1
             def #{stanza_name}?
               stanza_name == :#{stanza_name}
             end
