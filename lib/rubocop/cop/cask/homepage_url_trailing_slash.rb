@@ -9,7 +9,7 @@ module RuboCop
       class HomepageUrlTrailingSlash < Cop
         include OnHomepageStanza
 
-        MSG_NO_SLASH = "'%s' must have a slash after the domain.".freeze
+        MSG_NO_SLASH = "'%<url>s' must have a slash after the domain.".freeze
 
         def on_homepage_stanza(stanza)
           url_node = stanza.stanza_node.first_argument
@@ -17,7 +17,7 @@ module RuboCop
 
           return if url !~ %r{^.+://[^/]+$}
           add_offense(url_node, location: :expression,
-                                message: format(MSG_NO_SLASH, url))
+                                message: format(MSG_NO_SLASH, url: url))
         end
 
         def autocorrect(node)

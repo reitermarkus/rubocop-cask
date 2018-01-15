@@ -137,19 +137,19 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
 
   context 'when caveats stanza is incorrectly grouped' do
     let(:source) do
-      format(<<-CASK.undent, caveats.strip)
+      format(<<-CASK.undent, caveats: caveats.strip)
         cask 'foo' do
           version :latest
           sha256 :no_check
           url 'https://foo.example.com/foo.zip'
           name 'Foo'
           app 'Foo.app'
-          %s
+          %<caveats>s
         end
       CASK
     end
     let(:correct_source) do
-      format(<<-CASK.undent, caveats.strip)
+      format(<<-CASK.undent, caveats: caveats.strip)
         cask 'foo' do
           version :latest
           sha256 :no_check
@@ -159,7 +159,7 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
 
           app 'Foo.app'
 
-          %s
+          %<caveats>s
         end
       CASK
     end
