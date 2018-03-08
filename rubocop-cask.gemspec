@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['MIT-LICENSE.md', 'README.md']
 
   s.add_dependency 'public_suffix', '~> 3.0'
-  s.add_dependency 'rubocop', '~> 0.52.1'
+  s.add_dependency 'rubocop', '~> 0.53.0'
 
   s.add_development_dependency 'bundler', '~> 1.15'
 end
