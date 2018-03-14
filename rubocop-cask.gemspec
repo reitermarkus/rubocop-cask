@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
     Code style checking for Homebrew-Cask files.
     A plugin for the RuboCop code style enforcing & linting tool.
   DESCRIPTION
-  s.homepage = 'https://github.com/caskroom/rubocop-cask'
+  s.homepage = 'https://github.com/Homebrew/rubocop-cask'
   s.authors = ['Joshua Hagins']
   s.email = ['hagins.josh@gmail.com']
   s.license = 'MIT'

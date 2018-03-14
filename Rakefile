@@ -28,7 +28,7 @@ namespace :changelog do
   ENV['CHANGELOG_GITHUB_TOKEN'] ||= ENV['HOMEBREW_GITHUB_API_TOKEN']
 
   def configure_changelog(config, release: nil)
-    config.user = 'caskroom'
+    config.user = 'Homebrew'
     config.project = 'rubocop-cask'
     config.exclude_labels = %w[discussion duplicate invalid question wontfix]
     config.future_release = "v#{release}" if release
