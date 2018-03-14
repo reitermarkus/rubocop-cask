@@ -85,8 +85,6 @@ module RuboCop
         end
 
         def add_offense(line_index, message:)
-          puts inspect
-
           line_length = [processed_source[line_index].size, 1].max
           range = source_range(processed_source.buffer, line_index + 1, 0,
                                line_length)
