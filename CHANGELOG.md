@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.17.2](https://github.com/Homebrew/rubocop-cask/tree/v0.17.2) (2018-03-14)
+[Full Changelog](https://github.com/Homebrew/rubocop-cask/compare/v0.17.1...v0.17.2)
+
 ## [v0.17.1](https://github.com/Homebrew/rubocop-cask/tree/v0.17.1) (2018-03-14)
 [Full Changelog](https://github.com/Homebrew/rubocop-cask/compare/v0.17.0...v0.17.1)
 
