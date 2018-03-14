@@ -51,6 +51,9 @@ Naming/HeredocDelimiterNaming:
 Performance/StringReplacement:
   Enabled: false
 
+Security/Open:
+  Enabled: false
+
 Style/BarePercentLiterals:
   EnforcedStyle: percent_q
 
