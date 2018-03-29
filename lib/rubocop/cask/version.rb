@@ -3,6 +3,6 @@ require 'rubygems'
 module RuboCop
   module Cask
     # Version information for the Cask RuboCop plugin.
-    VERSION = '0.17.3'.freeze
+    VERSION = '0.18.0'.freeze
   end
 end
