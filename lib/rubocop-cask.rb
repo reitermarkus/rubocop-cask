@@ -15,7 +15,13 @@ require 'rubocop/cop/cask/no_dsl_version'
 require 'rubocop/cop/cask/stanza_order'
 require 'rubocop/cop/cask/stanza_grouping'
 
-RuboCop::ConfigLoader.default_configuration =
-  RuboCop::ConfigLoader.configuration_from_file(
-    File.expand_path('../config/default.yml', __dir__)
+module RuboCop
+  module Cask
+    DEFAULT_CONFIG = File.expand_path('../config/default.yml', __dir__)
+  end
+
+  ConfigLoader.default_configuration = ConfigLoader.merge_with_default(
+    ConfigLoader.load_file(Cask::DEFAULT_CONFIG),
+    Cask::DEFAULT_CONFIG,
   )
+end
