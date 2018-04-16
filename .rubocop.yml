@@ -31,3 +31,6 @@ Style/HashSyntax:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Style/Documentation:
+  Enabled: false

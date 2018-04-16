@@ -22,6 +22,6 @@ module RuboCop
 
   ConfigLoader.default_configuration = ConfigLoader.merge_with_default(
     ConfigLoader.load_file(Cask::DEFAULT_CONFIG),
-    Cask::DEFAULT_CONFIG,
+    Cask::DEFAULT_CONFIG
   )
 end
