@@ -1,6 +1,11 @@
 require 'rubocop'
 require 'rubocop/rspec/support'
 
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start
+end
+
 project_path = File.join(File.dirname(__FILE__), '..')
 Dir["#{project_path}/spec/support/**/*.rb"].each { |f| require f }
 
