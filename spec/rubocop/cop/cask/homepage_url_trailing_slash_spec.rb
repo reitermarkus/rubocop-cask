@@ -36,6 +36,13 @@ describe RuboCop::Cop::Cask::HomepageUrlTrailingSlash do
           end
         CASK
       end
+      let(:correct_source) do
+        <<-CASK.undent
+          cask 'foo' do
+            homepage 'https://foo.example.com/'
+          end
+        CASK
+      end
       let(:expected_offenses) do
         [{
           message: "'https://foo.example.com' must have a slash "\
@@ -48,6 +55,8 @@ describe RuboCop::Cop::Cask::HomepageUrlTrailingSlash do
       end
 
       include_examples 'reports offenses'
+
+      include_examples 'autocorrects source'
     end
   end
 end
