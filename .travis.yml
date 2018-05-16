@@ -18,13 +18,18 @@ matrix:
 before_script:
   - git config --local user.email "travis@travis.ci"
   - git config --local user.name "Travis CI"
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
   - bundle exec rake coverage
   - bundle exec overcommit --sign
   - bundle exec overcommit --run
 
-addons:
-  code_climate:
-    repo_token:
-      secure: IeYsbcr/+95oCgVU4ob/v7MmmMaaarj3mdu6Tf06F+AoliHYO+c68EZtzB3T7QEPQQ61xj9Z6mgOYh9mO5RGOvJPTq4biaZaMpkhFYC9gj+NcpGNP0ZdrKPVWYGVfLQXceSB3v/2NSbgCs+gP8ld0bn7JsLsvCZpoLIeJB9HHVb9r/pUOAI+cpNHkq5M+q8H2w5rdV+eGLbNrvgs4fEo5Y8V405QrpUWfXntW/KULFuMYImDFkrl4bM5knmBg/LqMT2aGxoSHOrSAWhYSlT4vlJ6s34TDCO9aCk6HPwaQn95CizusvA5mSlhcCn+Pjz1OQRfniErlEcDSh2pfU9/A8j2YGvmnd8z2WgMisrqtpw8E0FiEJGKW2wDskvuni8ymwQ6rboGy4p5ho8VPlqu754Pkx4L9Af+DTNV0w6dZiM1TMMGIlOkpLNmJwQJ1Em1nYBUficGZafzgcD3oPfsblLelr63RnfDKuC8A/hIjiYYn7emXt+QMa8z4jBeCnrZ0oLA8jd/rGYWMNTLIbwTZzD/OWMPJX2n+BfLEUHMHwH0Eei/AI2nvAShzNXg5NEtkWwmzTzWBWPqPBoV9+XSPOLDsjVYOEIOzeD/2E3n9bcuyA/rpLdPmS5vgvgb837xclvfAU93Z1x/JQgcRU/jx8EyGbNmVFMvM2yBwc2Bzv0=
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+env:
+  global:
+    secure: gVhx28ayjkU9pMHUHvAx1M5onf7lES1wWTEIS8Mnkj0T2+c9Lx3Q3T/3oIKY99OamVSqfrIICc3rLTzk978KmlGoByzckWjXBZ2nE4k4kvD27hYXDTadMhLfVvultsVXwfJe07G+KOIbXI0xjaXueVPU9/daI7d0G5YdCElAXdBGgn0Z+8SqEY95Cd7/PdTVOeFtTXIRcfJH3HMOO+NMLI3fdA2VfXjYDmBnROS6oB6L3GI8YV5B+YeYreEXAyjt3oNz0ZHb4x5L+aMSlL1pkCQRs3Ot41MyczRjV+60inCWpqAs6iRbVP3+1Xr+zC55ezEcEGtX7YSMWY8/RVQT3I80YYl3KmSesEWhIiFYhTT+Zk67K7ZfBbnw+bWbH9uz981pHYIOhsVuQbMBHpK5ImC5Z0sbNe7RM1gzZzJaFh8k/teyL5awQASKsS18yP4JLRzzKajm+wHFY0BULK5xqftKn+f1gCwps8VX89jQ8v9te2tElzMGiaUciu6SLNABGuqLVwIOfhPgR60YftbYepcuZPebaEw79dsCn8f4VH9Cvloi78MAKOyhRf2+CEKT7wJbAXGYz4RGjyzgrS2+vkQp4B2dAgqWg7UqEy9HW5Uum127xyELYkhVg6KtmS4NGOKIm+46vzShnlMXD7QL+ZJ5tten+vUM9Mrg/wHzyFc=
