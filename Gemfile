@@ -8,7 +8,6 @@ group :development do
 end
 
 group :test do
-  gem 'codeclimate-test-reporter', require: false
   gem 'overcommit', require: false
   gem 'rake', require: false
   gem 'rspec', require: false
