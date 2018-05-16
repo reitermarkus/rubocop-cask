@@ -1,11 +1,10 @@
 # RuboCop Cask
 
 [![Gem Version](https://badge.fury.io/rb/rubocop-cask.svg)](http://badge.fury.io/rb/rubocop-cask)
-[![Dependency Status](https://gemnasium.com/caskroom/rubocop-cask.svg)](https://gemnasium.com/caskroom/rubocop-cask)
-[![Build Status](https://travis-ci.org/caskroom/rubocop-cask.svg?branch=master)](https://travis-ci.org/caskroom/rubocop-cask)
-[![Coverage Status](https://img.shields.io/codeclimate/coverage/github/caskroom/rubocop-cask.svg)](https://codeclimate.com/github/caskroom/rubocop-cask)
-[![Code Climate](https://codeclimate.com/github/caskroom/rubocop-cask/badges/gpa.svg)](https://codeclimate.com/github/caskroom/rubocop-cask)
-[![Inline docs](http://inch-ci.org/github/caskroom/rubocop-cask.svg)](http://inch-ci.org/github/caskroom/rubocop-cask)
+[![Build Status](https://travis-ci.org/Homebrew/rubocop-cask.svg?branch=master)](https://travis-ci.org/Homebrew/rubocop-cask)
+[![Coverage Status](https://img.shields.io/codeclimate/coverage/github/Homebrew/rubocop-cask.svg)](https://codeclimate.com/github/Homebrew/rubocop-cask)
+[![Code Climate](https://codeclimate.com/github/Homebrew/rubocop-cask/badges/gpa.svg)](https://codeclimate.com/github/Homebrew/rubocop-cask)
+[![Inline docs](https://inch-ci.org/github/Homebrew/rubocop-cask.svg)](https://inch-ci.org/github/Homebrew/rubocop-cask)
 
 Cask-specific analysis for your [Homebrew-Cask](https://github.com/caskroom/homebrew-cask) taps, as an extension to
 [RuboCop](https://github.com/bbatsov/rubocop). Heavily inspired by [`rubocop-rspec`](https://github.com/nevir/rubocop-rspec).
