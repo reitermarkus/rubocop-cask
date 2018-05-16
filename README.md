@@ -2,8 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/rubocop-cask.svg)](http://badge.fury.io/rb/rubocop-cask)
 [![Build Status](https://travis-ci.org/Homebrew/rubocop-cask.svg?branch=master)](https://travis-ci.org/Homebrew/rubocop-cask)
-[![Coverage Status](https://img.shields.io/codeclimate/coverage/github/Homebrew/rubocop-cask.svg)](https://codeclimate.com/github/Homebrew/rubocop-cask)
-[![Code Climate](https://codeclimate.com/github/Homebrew/rubocop-cask/badges/gpa.svg)](https://codeclimate.com/github/Homebrew/rubocop-cask)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/977ef213ba6fb6c08022/test_coverage)](https://codeclimate.com/github/Homebrew/rubocop-cask/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/977ef213ba6fb6c08022/maintainability)](https://codeclimate.com/github/Homebrew/rubocop-cask/maintainability)
 [![Inline docs](https://inch-ci.org/github/Homebrew/rubocop-cask.svg)](https://inch-ci.org/github/Homebrew/rubocop-cask)
 
 Cask-specific analysis for your [Homebrew-Cask](https://github.com/caskroom/homebrew-cask) taps, as an extension to
