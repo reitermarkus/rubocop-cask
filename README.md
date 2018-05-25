@@ -5,8 +5,8 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/977ef213ba6fb6c08022/test_coverage)](https://codeclimate.com/github/Homebrew/rubocop-cask/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/977ef213ba6fb6c08022/maintainability)](https://codeclimate.com/github/Homebrew/rubocop-cask/maintainability)
 
-Cask-specific analysis for your [Homebrew-Cask](https://github.com/caskroom/homebrew-cask) taps, as an extension to
-[RuboCop](https://github.com/bbatsov/rubocop). Heavily inspired by [`rubocop-rspec`](https://github.com/nevir/rubocop-rspec).
+Cask-specific analysis for your [Homebrew-Cask](https://github.com/Homebrew/homebrew-cask) taps, as an extension to
+[RuboCop](https://github.com/bbatsov/rubocop). Heavily inspired by [`rubocop-rspec`](https://github.com/rubocop-rspec/rubocop-rspec).
 
 ## Installation
 
