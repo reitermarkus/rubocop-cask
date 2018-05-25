@@ -107,7 +107,7 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
             [{
               message: '`# example.com was verified as official` does not ' \
                        'match the expected comment format. For details, see ' \
-                      'https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment',
+                      'https://github.com/Homebrew/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment',
               severity: :convention,
               line: 2,
               column: 2,
@@ -185,7 +185,7 @@ describe RuboCop::Cop::Cask::HomepageMatchesUrl do
         [{
           message: '`example.com` does not match `example.org`, a comment ' \
                    'has to be added above the `url` stanza. For details, see ' \
-                   'https://github.com/caskroom/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment',
+                   'https://github.com/Homebrew/homebrew-cask/blob/master/doc/cask_language_reference/stanzas/url.md#when-url-and-homepage-hostnames-differ-add-a-comment',
           severity: :convention,
           line: 2,
           column: 2,
