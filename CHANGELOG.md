@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.20.0](https://github.com/Homebrew/rubocop-cask/tree/v0.20.0) (2018-06-20)
+[Full Changelog](https://github.com/Homebrew/rubocop-cask/compare/v0.19.0...v0.20.0)
+
+**Merged pull requests:**
+
+- Update RuboCop to 0.57.2. [\#63](https://github.com/Homebrew/rubocop-cask/pull/63) ([reitermarkus](https://github.com/reitermarkus))
+- Update URLs. [\#62](https://github.com/Homebrew/rubocop-cask/pull/62) ([reitermarkus](https://github.com/reitermarkus))
+
 ## [v0.19.0](https://github.com/Homebrew/rubocop-cask/tree/v0.19.0) (2018-04-17)
 [Full Changelog](https://github.com/Homebrew/rubocop-cask/compare/v0.18.1...v0.19.0)
 
