@@ -1,4 +1,7 @@
-# require: rubocop-rspec
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.3
 
 AllCops:
   Exclude:
@@ -26,11 +29,14 @@ Naming/FileName:
   Exclude:
     - lib/rubocop-cask.rb
 
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+
+Style/Documentation:
+  Enabled: false
+
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
 
 Style/SymbolArray:
   EnforcedStyle: brackets
-
-Style/Documentation:
-  Enabled: false

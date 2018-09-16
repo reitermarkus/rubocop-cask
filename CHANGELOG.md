@@ -9,6 +9,7 @@
 
 **Merged pull requests:**
 
+- Version 0.21.0 [\#69](https://github.com/Homebrew/rubocop-cask/pull/69) ([reitermarkus](https://github.com/reitermarkus))
 - Deploy to RubyGems via Travis. [\#68](https://github.com/Homebrew/rubocop-cask/pull/68) ([reitermarkus](https://github.com/reitermarkus))
 - Update RuboCop to 0.58.2. [\#67](https://github.com/Homebrew/rubocop-cask/pull/67) ([reitermarkus](https://github.com/reitermarkus))
 - remove `gpg` stanza [\#65](https://github.com/Homebrew/rubocop-cask/pull/65) ([commitay](https://github.com/commitay))

@@ -46,5 +46,4 @@ end
 
 task changelog: 'changelog:unreleased'
 
-Rake::Task['build'].enhance [:spec, 'rubocop:auto_correct',
-                             'changelog:latest_release']
+task build: [:spec, :'rubocop:auto_correct', :'changelog:latest_release']

@@ -25,8 +25,9 @@ Gem::Specification.new do |s|
   s.test_files = Dir['spec/**/*.rb']
   s.extra_rdoc_files = ['MIT-LICENSE.md', 'README.md']
 
-  s.add_dependency 'public_suffix', '~> 3.0.2'
+  s.add_dependency 'public_suffix', '~> 3.0', '>= 3.0.3'
   s.add_dependency 'rubocop', '~> 0.58.2'
 
   s.add_development_dependency 'bundler', '~> 1.16'
+  s.add_development_dependency 'rubocop-rspec'
 end
