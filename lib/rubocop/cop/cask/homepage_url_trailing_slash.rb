@@ -16,6 +16,7 @@ module RuboCop
           url = url_node.str_content
 
           return if url !~ %r{^.+://[^/]+$}
+
           add_offense(url_node, location: :expression,
                                 message: format(MSG_NO_SLASH, url: url))
         end

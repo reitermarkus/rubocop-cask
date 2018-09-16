@@ -24,6 +24,7 @@ module RuboCop
         def on_cask(cask_block)
           @cask_header = cask_block.header
           return unless offense?
+
           offense
         end
 

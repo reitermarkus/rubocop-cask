@@ -42,6 +42,7 @@ module RuboCop
         def add_offenses
           toplevel_stanzas.each_cons(2) do |stanza, next_stanza|
             next unless next_stanza
+
             if missing_line_after?(stanza, next_stanza)
               add_offense_missing_line(stanza)
             elsif extra_line_after?(stanza, next_stanza)
