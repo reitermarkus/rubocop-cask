@@ -1,5 +1,18 @@
 # Change Log
 
+## [v0.21.0](https://github.com/Homebrew/rubocop-cask/tree/v0.21.0) (2018-09-16)
+[Full Changelog](https://github.com/Homebrew/rubocop-cask/compare/v0.20.0...v0.21.0)
+
+**Fixed bugs:**
+
+- StanzaGrouping cop doesn't fail if url stanza has a comment above but no empty line [\#40](https://github.com/Homebrew/rubocop-cask/issues/40)
+
+**Merged pull requests:**
+
+- Deploy to RubyGems via Travis. [\#68](https://github.com/Homebrew/rubocop-cask/pull/68) ([reitermarkus](https://github.com/reitermarkus))
+- Update RuboCop to 0.58.2. [\#67](https://github.com/Homebrew/rubocop-cask/pull/67) ([reitermarkus](https://github.com/reitermarkus))
+- remove `gpg` stanza [\#65](https://github.com/Homebrew/rubocop-cask/pull/65) ([commitay](https://github.com/commitay))
+
 ## [v0.20.0](https://github.com/Homebrew/rubocop-cask/tree/v0.20.0) (2018-06-20)
 [Full Changelog](https://github.com/Homebrew/rubocop-cask/compare/v0.19.0...v0.20.0)
 
