@@ -7,7 +7,9 @@ if ENV['COVERAGE']
 end
 
 project_path = File.join(File.dirname(__FILE__), '..')
-Dir["#{project_path}/spec/support/**/*.rb"].each { |f| require f }
+Dir["#{project_path}/spec/support/**/*.rb"].each do |f|
+  require f
+end
 
 RSpec.configure do |config|
   config.order = :random
@@ -21,6 +23,5 @@ RSpec.configure do |config|
   end
 end
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
+$LOAD_PATH.unshift(File.join(__dir__, '..', 'lib'))
 require 'rubocop-cask'

@@ -2,6 +2,7 @@ describe RuboCop::Cop::Cask::StanzaGrouping do
   include CopSharedExamples
 
   subject(:cop) { described_class.new }
+
   let(:missing_line_msg) do
     'stanza groups should be separated by a single empty line'
   end

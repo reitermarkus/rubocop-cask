@@ -66,21 +66,21 @@ Cask/NoDslVersion:
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. Fork it.
+2. Create your feature branch (`git checkout -b my-new-feature`).
+3. Commit your changes (`git commit -am 'Add some feature'`).
+4. Push to the branch (`git push origin my-new-feature`).
+5. Create new pull request.
 
 
 ## Maintaining
 
 To publish a new release:
 
-  1. update the version in `lib/rubocop/cask/version.rb`
-  2. run `bundle exec rake build` to run tests and generate the changelog
-  3. commit the changes
-  4. run `bundle exec rake release`
+  1. Update the version in `lib/rubocop/cask/version.rb`.
+  2. Run `bundle exec rake build` to run tests and generate the changelog.
+  3. Commit the changes.
+  4. Create a new tag on GitHub.
 
 
 ## License
