@@ -30,6 +30,7 @@ module RuboCop
         def on_cask(cask_block)
           @cask_block = cask_block
           return unless homepage_stanza
+
           add_offenses
         end
 
@@ -122,6 +123,7 @@ module RuboCop
         def extract_url(stanza)
           string = stanza.stanza_node.children[2]
           return string.str_content if string.str_type?
+
           string.to_s.gsub(%r{.*"([a-z0-9]+\:\/\/[^"]+)".*}m, '\1')
         end
 
